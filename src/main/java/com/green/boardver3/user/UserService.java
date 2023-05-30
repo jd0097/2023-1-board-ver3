@@ -30,11 +30,7 @@ public class UserService {
     }
     public int login(UserLoginDto dto){
 
-        try {
 
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
         return 0;
     }
 }
