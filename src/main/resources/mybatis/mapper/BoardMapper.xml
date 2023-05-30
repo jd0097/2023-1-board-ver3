@@ -10,7 +10,10 @@
         (#{title}, #{ctnt}, #{iuser})
     </insert>
     <select id="selBoardAll" resultType="BoardEntity">
-        SELECT *
-        from t_board
+        SELECT iboard, title, ctnt,
+        iuser, created_at createdAt, updated_at updatedAt
+        FROM t_board
+        ORDER BY iboard DESC
+        LIMIT $startIdx $rowLen
     </select>
 </mapper>
