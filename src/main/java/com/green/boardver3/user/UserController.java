@@ -16,7 +16,7 @@ public class UserController {
         this.service = service;
     }
     @PostMapping
-    public int postBoard(@RequestBody UserEntity entity) {
-        return service.insBoard(entity);
+    public int postUser(@RequestBody UserEntity entity) {
+        return service.insUser(entity);
     }
 }
