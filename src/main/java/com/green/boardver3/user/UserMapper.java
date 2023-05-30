@@ -6,5 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface UserMapper {
     int insUser(UserEntity entity);
     UserLoginVo selUserByUid(UserLoginDto dto);
-
+    UserLoginVo selUserByUpw(UserLoginDto dto);
 }
