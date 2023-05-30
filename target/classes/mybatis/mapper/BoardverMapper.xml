@@ -5,9 +5,9 @@
 <mapper namespace="com.green.boardver3.BoardverMapper">
 <insert id="insBoard" parameterType="BoardEntity">
     insert into t_user
-    ( uid, upw, name, gender, addr )
+    ( uid, upw, nm, gender, addr )
     values
-    (#{uid},#{upw},#{name},#{gender},#{addr})
+    (#{uid},#{upw},#{nm},#{gender},#{addr})
 </insert>
 
 
