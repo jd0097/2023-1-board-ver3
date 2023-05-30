@@ -15,8 +15,18 @@ public class UserService {
     }
 
     public int insUser(UserEntity entity) {
+        //성별 항상 대문자 변경
+        char gender = Character.toUpperCase(entity.getGender());
+        entity.setGender(gender);
+        //비밀번호 암호화
         String hashPw = commonUtils.encodeSha256(entity.getUpw());
         entity.setUpw(hashPw);
-        return mapper.insUser(entity);
+        try {
+            return mapper.insUser(entity);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+
     }
 }
