@@ -7,4 +7,5 @@ public interface UserMapper {
     int insUser(UserEntity entity);
     UserLoginVo selUserByUid(UserLoginDto dto);
 
+
 }
