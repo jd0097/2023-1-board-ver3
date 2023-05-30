@@ -28,4 +28,9 @@ public class UserController {
     public int postUser(@RequestBody UserEntity entity) {
         return service.insUser(entity);
     }
+    @PostMapping("/login")
+    @Operation(summary = "로그인", description = "" )
+    public int postLoginUser(@RequestBody UserLoginDto dto){
+        return service.login(dto);
+    }
 }

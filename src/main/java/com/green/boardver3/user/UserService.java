@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private final UserMapper mapper;
     private final CommonUtils commonUtils;
-
     @Autowired
     public UserService(UserMapper mapper, CommonUtils commonUtils) {
         this.mapper = mapper;
@@ -29,6 +28,7 @@ public class UserService {
             return 0;
         }
     }
-
-
+    public int login(UserLoginDto dto){
+        return 0;
+    }
 }
