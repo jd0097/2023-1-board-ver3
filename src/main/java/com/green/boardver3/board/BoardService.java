@@ -1,7 +1,9 @@
 package com.green.boardver3.board;
 
+import com.green.boardver3.board.model.BoardDto;
 import com.green.boardver3.board.model.BoardEntity;
 import com.green.boardver3.board.model.BoardInsDto;
+import com.green.boardver3.board.model.BoardVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +21,11 @@ public class BoardService {
         return mapper.insBoard(dto);
     }
     public List<BoardVo> SelBoardAll(BoardDto dto){
+    int startIdx = (dto.getPage() -1) * dto.getRowLen();
+    dto.setRowLen(dto.getRowLen());
+    dto.setPage(startIdx);
 
 
-
-    return mapper.selBoardAll();
+    return mapper.selBoardAll(dto);
     }
 }
