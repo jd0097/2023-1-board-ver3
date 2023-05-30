@@ -31,13 +31,11 @@ public class UserService {
     }
     public int login(UserLoginDto dto){
         UserLoginVo vo = mapper.selUserByUid(dto);
-        UserLoginVo po = mapper.selUserByUpw(dto);
-
-        if (vo == null) {
-            return 2;
-        } else if (po == null) {
-            return 3;
+        if (vo == null) { return 2; }
+        String hashedPw = commonUtils.encodeSha256(dto.getUpw());
+        if (vo.getUpw().equals(hashedPw)) {
+            return 1;
         }
-        return 1;
+        return 3;
     }
 }
