@@ -35,7 +35,7 @@ public class UserController {
         return service.login(dto);
     }
     @PatchMapping("/user/pw")
-    public int patchUpwUser(@RequestBody UserEntity entity) {
-        return service.updUserByUpw(entity);
+    public int patchUpwUser(@RequestBody UserPatchPwDto dto) {
+        return service.updUserByUpw(dto);
     }
 }
