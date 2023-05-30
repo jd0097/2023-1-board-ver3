@@ -9,4 +9,8 @@
         VALUES
         (#{title}, #{ctnt}, #{iuser})
     </insert>
+    <select id="selBoardAll" resultType="BoardEntity">
+        SELECT *
+        from t_board
+    </select>
 </mapper>
