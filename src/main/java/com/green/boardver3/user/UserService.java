@@ -31,9 +31,9 @@ public class UserService {
     }
     public int login(UserLoginDto dto){
         UserLoginVo vo = mapper.selUserByUid(dto);
-        if (vo == null) { return 2; } //아이디값 없으면 ㅃ
+        if (vo == null) { return 2; }
         String hashedPw = commonUtils.encodeSha256(dto.getUpw());
-        if (vo.getUpw().equals(hashedPw)) {//비밀번호값
+        if (vo.getUpw().equals(hashedPw)) {
             return 1;
         }
         return 3;
