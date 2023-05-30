@@ -1,7 +1,10 @@
 package com.green.boardver3.user;
 
+import com.green.boardver3.user.model.UserEntity;
+import com.green.boardver3.user.model.UserLoginDto;
+import com.green.boardver3.user.model.UserLoginVo;
+import com.green.boardver3.user.model.UserPatchPwDto;
 import com.green.boardver3.utils.CommonUtils;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
