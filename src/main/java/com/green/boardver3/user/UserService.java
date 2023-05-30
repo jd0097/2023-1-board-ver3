@@ -29,11 +29,12 @@ public class UserService {
         }
     }
     public int login(UserLoginDto dto){
-        try {
-            dto.getUid().equals(dto);
-        }catch (Exception e) {
-            e.printStackTrace();
+        UserLoginVo vo = mapper.selUserByUid(dto);
+        if (vo == null) {
+            return 2;
+        } else if () {
+            
         }
-        return mapper.Login(dto);
+        return 0;
     }
 }
