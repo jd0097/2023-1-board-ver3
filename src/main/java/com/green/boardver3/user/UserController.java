@@ -31,6 +31,6 @@ public class UserController {
     @PostMapping("/login")
     @Operation(summary = "로그인", description = "" )
     public int postLoginUser(@RequestBody UserLoginDto dto){
-        return 0;
+        return service.login(dto);
     }
 }
