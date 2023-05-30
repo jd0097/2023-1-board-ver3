@@ -27,6 +27,8 @@ public class UserService {
             e.printStackTrace();
             return 0;
         }
-
+    }
+    public int login(UserLoginDto dto){
+        return 0;
     }
 }
