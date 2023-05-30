@@ -13,4 +13,5 @@ public class BoardService {
     public int insBoard(BoardInsDto dto){
         return mapper.insBoard(dto);
     }
+
 }
