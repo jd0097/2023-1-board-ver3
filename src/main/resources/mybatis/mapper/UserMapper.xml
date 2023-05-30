@@ -13,7 +13,6 @@
         SELECT iuser, uid, upw, nm, gender, addr, main_pic mainPic
         FROM t_user
         WHERE uid = #{uid}
-
     </select>
 
     <update id="updUserByUpw">
@@ -21,5 +20,7 @@
         SET upw = #{upw}
         WHERE iuser = #{iuser}
     </update>
+
+
 
 </mapper>
