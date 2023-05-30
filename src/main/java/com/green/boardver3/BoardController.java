@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/boardver3")
+@RequestMapping("/board")
 public class BoardController {
 
     private final BoardService service;
