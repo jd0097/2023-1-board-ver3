@@ -12,7 +12,7 @@ public class UserEntity {
     @Schema(description = "[100] 회원 비밀번호")
     public String upw;
     public String nm;
-    public String gender;
+    public char gender;
     public String addr;
     public String mainPic;
     public String createdAt;
