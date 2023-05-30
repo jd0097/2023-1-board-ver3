@@ -32,6 +32,7 @@ public class UserService {
     public int login(UserLoginDto dto){
         UserLoginVo vo = mapper.selUserByUid(dto);
         UserLoginVo po = mapper.selUserByUpw(dto);
+
         if (vo == null) {
             return 2;
         } else if (po == null) {

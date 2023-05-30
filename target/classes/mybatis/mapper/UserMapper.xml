@@ -15,7 +15,7 @@
         WHERE uid = #{uid}
 
     </select>
-    <select id="selUserByUpw" resultType="UserLoginDto">
+    <select id="selUserByUpw" resultType="UserLoginVo">
         select iuser, uid, upw, nm, gender, addr, main_pic mainPic
         from t_user
         where upw = #{upw}
