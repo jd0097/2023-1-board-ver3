@@ -3,6 +3,7 @@ package com.green.boardver3.board;
 import com.green.boardver3.board.model.BoardDto;
 import com.green.boardver3.board.model.BoardEntity;
 import com.green.boardver3.board.model.BoardInsDto;
+import com.green.boardver3.board.model.BoardVo;
 import jakarta.validation.constraints.Min;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,11 +28,12 @@ public class BoardController {
         return service.insBoard(dto);
     }
     @GetMapping
-    public List<BoardDto> getBoard(@RequestParam @Min(value = 1) int page,
-                                   @RequestParam(defaultValue = "40")int row){
+    public List<BoardVo> getBoard(@RequestParam @Min(value = 1) int page,
+                                  @RequestParam(defaultValue = "40")int row){
         LOGGER.info("page : "+ page);
         BoardDto dto = new BoardDto();
         dto.setPage(page);
+
         dto.setRowLen(row);
         return service.selBoardAll(dto);
     }
