@@ -38,7 +38,9 @@ public class UserService {
         }
         return 3;
     }
-
-
-
+    public int updUserByUpw(UserEntity entity) {
+        String hashPw = commonUtils.encodeSha256(entity.getUpw());
+        entity.setUpw(hashPw);
+        return mapper.updUserByUpw(entity);
+    }
 }

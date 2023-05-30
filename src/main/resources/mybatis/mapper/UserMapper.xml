@@ -15,5 +15,10 @@
         WHERE uid = #{uid}
     </select>
 
+    <update id="updUserByUpw">
+        UPDATE t_user
+        SET upw = #{upw}
+        WHERE iuser = #{iuser}
+    </update>
 
 </mapper>
