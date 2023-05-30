@@ -1,6 +1,7 @@
 package com.green.boardver3.user;
 
 import com.green.boardver3.utils.CommonUtils;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,11 +31,12 @@ public class UserService {
     }
     public int login(UserLoginDto dto){
         UserLoginVo vo = mapper.selUserByUid(dto);
+        UserLoginVo po = mapper.selUserByUpw(dto);
         if (vo == null) {
             return 2;
-        } else if () {
-            
+        } else if (po == null) {
+            return 3;
         }
-        return 0;
+        return 1;
     }
 }
