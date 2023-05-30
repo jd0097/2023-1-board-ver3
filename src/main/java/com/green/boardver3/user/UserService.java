@@ -21,7 +21,7 @@ public class UserService {
         entity.setGender(gender);
         //비밀번호 암호화
         String hashPw = commonUtils.encodeSha256(entity.getUpw());
-        entity.setUpw(hashPw);
+        entity.setUpw(hashPw);//entity
         try {
             return mapper.insUser(entity);
         } catch (Exception e) {
