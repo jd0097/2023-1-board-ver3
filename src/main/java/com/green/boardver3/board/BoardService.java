@@ -10,7 +10,7 @@ public class BoardService {
     public BoardService(BoardMapper mapper) {
         this.mapper = mapper;
     }
-    public int insBoard(BoardEntity entity){
-        return mapper.insBoard(entity);
+    public int insBoard(BoardInsDto dto){
+        return mapper.insBoard(dto);
     }
 }
