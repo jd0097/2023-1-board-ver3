@@ -16,7 +16,7 @@ spring:
 
 mybatis:
   type-aliases-package: com.green.boardver3
-  mapper-locations: mapper/**/*.xml
+  mapper-locations: mybatis/mapper/**/*.xml
 
 
 # swagger
