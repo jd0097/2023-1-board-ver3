@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/board")
 public class BoardController {
     private final BoardService service;
 
@@ -15,7 +15,7 @@ public class BoardController {
         this.service = service;
     }
     @PostMapping
-    public int postBoard(BoardEntity entity){
-        return service.insBoard(entity);
+    public int postBoard(BoardInsDto dto){
+        return service.insBoard(dto);
     }
 }
