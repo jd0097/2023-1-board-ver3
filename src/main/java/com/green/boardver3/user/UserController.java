@@ -29,7 +29,11 @@ public class UserController {
         return service.insUser(entity);
     }
     @PostMapping("/login")
-    @Operation(summary = "로그인", description = "" )
+    @Operation(summary = "로그인", description = "" +
+            "리턴값 : " +
+            "(1)로그인 성공, " +
+            "(2)아이디 없음, " +
+            "(3)비밀번호 다름")
     public int postLoginUser(@RequestBody UserLoginDto dto){
         return service.login(dto);
     }
