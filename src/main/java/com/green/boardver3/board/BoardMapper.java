@@ -8,6 +8,6 @@ import java.util.List;
 
 @Mapper
 public interface BoardMapper {
-    public int insBoard(BoardInsDto dto);
+    int insBoard(BoardInsDto dto);
     List<BoardEntity> selBoardAll();
 }
