@@ -3,6 +3,7 @@ package com.green.boardver3.user;
 import lombok.Data;
 
 @Data
+
 public class UserEntity {
     public int iuser;
     public String uid;
