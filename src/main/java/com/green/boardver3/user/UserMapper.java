@@ -3,5 +3,6 @@ package com.green.boardver3.user;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface UerMapper {
+public interface UserMapper {
+    int insBoard(UserEntity entity);
 }
