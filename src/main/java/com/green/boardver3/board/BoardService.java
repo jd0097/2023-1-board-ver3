@@ -20,7 +20,8 @@ public class BoardService {
     public int insBoard(BoardInsDto dto){
         return mapper.insBoard(dto);
     }
-    public List<BoardVo> SelBoardAll(BoardDto dto){
+
+    public List<BoardVo> selBoardAll(BoardDto dto){
     int startIdx = (dto.getPage() -1) * dto.getRowLen();
     dto.setRowLen(dto.getRowLen());
     dto.setPage(startIdx);
