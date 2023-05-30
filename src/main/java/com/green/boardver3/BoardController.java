@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/board")
+@RequestMapping("/boardver3")
 public class BoardController {
 
     private final BoardService service;
