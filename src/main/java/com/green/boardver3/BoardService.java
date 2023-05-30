@@ -1,6 +1,5 @@
 package com.green.boardver3;
 
-import com.green.boardver3.model.BoardDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +12,7 @@ public class BoardService {
         this.mapper = mapper;
     }
 
-    public int insBoard(BoardDto dto) {
-        return mapper.insBoard(dto);
+    public int insBoard(BoardEntity entity) {
+        return mapper.insBoard(entity);
     }
 }
