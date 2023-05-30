@@ -11,7 +11,7 @@ public class UserService {
         this.mapper = mapper;
     }
 
-    public int insBoard(UserEntity entity) {
-        return mapper.insBoard(entity);
+    public int insUser(UserEntity entity) {
+        return mapper.insUser(entity);
     }
 }
