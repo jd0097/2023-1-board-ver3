@@ -1,5 +1,6 @@
 package com.green.boardver3.board;
 
+import com.green.boardver3.board.model.BoardDto;
 import com.green.boardver3.board.model.BoardEntity;
 import com.green.boardver3.board.model.BoardInsDto;
 import jakarta.validation.constraints.Min;
@@ -27,11 +28,11 @@ public class BoardController {
     }
     @GetMapping
     public List<BoardDto> getBoard(@RequestParam @Min(value = 1) int page,
-                                      @RequestParam(defaultValue = "40")int row){
+                                   @RequestParam(defaultValue = "40")int row){
         LOGGER.info("page : "+ page);
-        BoardDto entity = new BoardDto();
-        entity.
-
-
+        BoardDto dto = new BoardDto();
+        dto.setPage(page);
+        dto.setRowLen(row);
+        return service.selBoardAll(dto);
     }
 }
