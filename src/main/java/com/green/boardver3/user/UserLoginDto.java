@@ -6,5 +6,4 @@ import lombok.Data;
 public class UserLoginDto {
     private String uid;
     private String upw;
-
 }
