@@ -43,8 +43,9 @@ public class BoardController {
 
     }
     @GetMapping("/{iboard}")
-    public BoardSelMaxDto getBoardDetail(@PathVariable int iboard){
-
+    public BoardSelDto getBoardDetail(@PathVariable int iboard){
+            BoardDto dto = new BoardDto();
+            dto.set
     }
 
 
