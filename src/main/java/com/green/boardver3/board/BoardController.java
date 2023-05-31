@@ -27,14 +27,15 @@ public class BoardController {
     public int postBoard(BoardInsDto dto){
         return service.insBoard(dto);
     }
+
     @GetMapping
-    public List<BoardVo> getBoard(@RequestParam @Min(value = 1) int page,
+    public List<BoardVo> getBoard(@RequestParam (defaultValue = "1") int page,
                                   @RequestParam(defaultValue = "40")int row){
         LOGGER.info("page : "+ page);
         BoardDto dto = new BoardDto();
         dto.setPage(page);
-
         dto.setRowLen(row);
+
         return service.selBoardAll(dto);
     }
 }
