@@ -1,5 +1,6 @@
 package com.green.boardver3.board;
 
+import com.green.boardver3.board.model.BoardDetailDto;
 import com.green.boardver3.board.model.BoardInsDto;
 import com.green.boardver3.board.model.BoardSelDto;
 import com.green.boardver3.board.model.BoardVo;
@@ -31,8 +32,8 @@ public class BoardService {
         int count = mapper.selBoardRowCount(row);
         return (int)Math.ceil((double)count / row);
     }
-    public BoardVo selbyBoard(BoardVo vo){
+    public BoardDetailDto selbyBoard(BoardDetailDto dto){
 
-        return mapper.selbyBoard(vo);
+        return mapper.selbyBoard(dto);
 }
 }
