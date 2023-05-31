@@ -28,7 +28,7 @@ public class BoardService {
 }
 public int selMaxBoad(int row){
     int count = mapper.selMaxBoard(row);
-    return  (int)Math.ceil(count/row);
+    return  (int)Math.ceil((double)count/row);
 }
 
 
