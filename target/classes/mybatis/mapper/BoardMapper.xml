@@ -26,12 +26,10 @@
         SELECT COUNT(iboard)
         FROM t_board
     </select>
-    <select id="selBoardById" resultType="BoardVo">
-        SELECT iboard, title, ctnt, iuser
-            , created_at createdAt, updated_at updatedAt
-            , iuserMainPic
-        FROM t_board
+
+    <select id="selBoardById" resultType="BoardDetailDto">
+        SELECT *
+        from
         WHERE iboard = #{iboard}
     </select>
-
 </mapper>
