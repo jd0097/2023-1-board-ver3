@@ -27,9 +27,9 @@
         FROM t_board
     </select>
 
-    <select id="selBoardById" resultType="BoardDetailDto">
+    <select id="selByBoard" resultType="BoardDetailDto">
         SELECT *
-        from
+        from t_board
         WHERE iboard = #{iboard}
     </select>
 </mapper>
