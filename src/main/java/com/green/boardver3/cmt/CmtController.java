@@ -16,12 +16,7 @@ public class CmtController {
         this.service = service;
     }
     @PostMapping
-    public int insCmt(@RequestBody CmtEntity dto){
+    public int insCmt(@RequestBody CmtInsDto dto){
     return service.insCmt(dto);
-    }
-    @GetMapping("/{iboard}")
-    public List getCmt(@PathVariable int iboard){
-
-    return
     }
 }
