@@ -1,9 +1,6 @@
 package com.green.boardver3.board;
 
-import com.green.boardver3.board.model.BoardDetailDto;
-import com.green.boardver3.board.model.BoardInsDto;
-import com.green.boardver3.board.model.BoardSelDto;
-import com.green.boardver3.board.model.BoardVo;
+import com.green.boardver3.board.model.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -54,6 +51,10 @@ public class BoardController {
         dto.setIboard(iboard);
         dto.setIuser(iuser);
         return service.delBoard(dto);
+    }
+    @PutMapping
+    public int putBoard(@RequestBody BoardUpdDto dto){
+    return service.updBoard(dto);
     }
 
 }
