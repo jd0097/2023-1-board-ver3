@@ -31,4 +31,8 @@ public class BoardService {
         int count = mapper.selBoardRowCount(row);
         return (int)Math.ceil((double)count / row);
     }
+    public BoardVo selbyBoard(BoardVo vo){
+
+        return mapper.selbyBoard(vo);
+}
 }
