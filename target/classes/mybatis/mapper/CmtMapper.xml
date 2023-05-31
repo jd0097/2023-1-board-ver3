@@ -1,0 +1,13 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.green.boardver3.cmt.CmtMapper">
+    <insert id="insCmt">
+        INSERT INTO t_board_cmt
+        (iboard, iuser, ctnt)
+        VALUES
+        (#{iboard}, #{iuser}, #{ctnt})
+
+    </insert>
+</mapper>
