@@ -1,5 +1,6 @@
 package com.green.boardver3.board;
 
+import com.green.boardver3.board.model.BoardDetailDto;
 import com.green.boardver3.board.model.BoardInsDto;
 import com.green.boardver3.board.model.BoardSelDto;
 import com.green.boardver3.board.model.BoardVo;
@@ -42,7 +43,7 @@ public class BoardController {
 
     @GetMapping("/{iboard}")
     public BoardVo getBoardDetail(@PathVariable int iboard){
-        BoardVo vo = new BoardVo();
+        BoardDetailDto vo = new BoardDetailDto();
 
 
     }
