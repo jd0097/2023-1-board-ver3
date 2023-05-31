@@ -46,7 +46,6 @@ public class BoardController {
         BoardDetailDto vo = new BoardDetailDto();
         vo.setIboard(iboard);
         return service.selbyBoard(vo);
-
     }
 
 
