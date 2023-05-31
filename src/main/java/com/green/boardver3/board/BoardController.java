@@ -4,6 +4,7 @@ import com.green.boardver3.board.model.BoardDto;
 import com.green.boardver3.board.model.BoardEntity;
 import com.green.boardver3.board.model.BoardInsDto;
 import com.green.boardver3.board.model.BoardVo;
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,4 +39,7 @@ public class BoardController {
 
         return service.selBoardAll(dto);
     }
+    @GetMapping
+    public List<BoardVo> getMaxBoard(@RequestParam @Max)
+
 }
