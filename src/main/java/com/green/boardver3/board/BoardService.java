@@ -14,7 +14,7 @@ import java.util.List;
 public class BoardService {
     private final BoardMapper mapper;
 @Autowired
-@Builder
+
     public BoardService(BoardMapper mapper) {
         this.mapper = mapper;
     }
