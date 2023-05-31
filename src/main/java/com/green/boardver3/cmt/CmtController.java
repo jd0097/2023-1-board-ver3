@@ -1,5 +1,6 @@
 package com.green.boardver3.cmt;
 
+import com.green.boardver3.cmt.model.CmtEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +16,7 @@ public class CmtController {
         this.service = service;
     }
     @PostMapping
-    public int insCmt(@RequestBody ){
-    return service
+    public int insCmt(@RequestBody CmtInsDto dto){
+    return service.insCmt(dto);
     }
 }
