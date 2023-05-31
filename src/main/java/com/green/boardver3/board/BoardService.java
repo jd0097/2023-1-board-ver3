@@ -30,6 +30,11 @@ public int selMaxBoad(int row){
     int count = mapper.selMaxBoard(row);
     return  (int)Math.ceil((double)count/row);
 }
+public int selBoardById(int idx){
+
+    return mapper.selBoardById(idx);
+}
+
 
 
 }
