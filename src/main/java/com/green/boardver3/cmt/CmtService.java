@@ -15,7 +15,11 @@ public class CmtService {
         this.mapper = mapper;
     }
 
-    public int insCmt(CmtEntity dto){
+    public int insCmt(CmtInsDto dto){
+         CmtEntity entity = new CmtEntity();
+         entity.setIboard(dto.getIboard());
+         entity.setIuser(dto.getIuser());
+         entity.setCtnt(dto.getCtnt());
         return mapper.insCmt(dto);
     }
 

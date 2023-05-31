@@ -6,5 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface CmtMapper {
-    int insCmt(CmtEntity dto);
+    int insCmt(CmtInsDto dto);
 }
