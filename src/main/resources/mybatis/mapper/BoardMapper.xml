@@ -16,7 +16,7 @@
         LIMIT ${startIdx} ,${rowLen}
     </select>
     <select id="selMaxBoard" resultType="int">
-        SELECT CEIL(COUNT(iboard) / ${row}) maxPage
+        SELECT CEIL(COUNT(iboard))
         FROM t_board
     </select>
 
