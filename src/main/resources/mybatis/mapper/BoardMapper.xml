@@ -15,11 +15,9 @@
         ORDER BY iboard DESC
         LIMIT ${startIdx} ,${rowLen}
     </select>
-    <select id="selBoardMaxPage" resultType="BoardVo">
-        SELECT *
+    <select id="selMaxBoard" resultType="BoardVo">
+        SELECT COUNT(iboard)
         FROM t_board
-        ORDER BY iboard DESC
-        LIMIT ${startIdx} ,${rowLen}
     </select>
 
 
