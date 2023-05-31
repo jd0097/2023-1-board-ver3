@@ -1,9 +1,6 @@
 package com.green.boardver3.board;
 
-import com.green.boardver3.board.model.BoardDto;
-import com.green.boardver3.board.model.BoardEntity;
-import com.green.boardver3.board.model.BoardInsDto;
-import com.green.boardver3.board.model.BoardVo;
+import com.green.boardver3.board.model.*;
 import lombok.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,12 +25,10 @@ public class BoardService {
     dto.setRowLen(dto.getRowLen());
     dto.setStartIdx(startIdx);
     return mapper.selBoardAll(dto);
-    }
+}
+public int selMaxBoad(int row){
+    return  mapper.selMaxBoard(row);
+}
 
-
-    public int selMaxBoard(BoardDto dto){
-
-    return mapper.selMaxBoard(dto);
-    }
 
 }

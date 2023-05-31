@@ -15,11 +15,9 @@
         ORDER BY iboard DESC
         LIMIT ${startIdx} ,${rowLen}
     </select>
-    <select id="selBoardMaxPage" resultType="BoardVo">
-        SELECT *
+    <select id="selMaxBoard" resultType="int">
+        SELECT CEIL(COUNT(iboard) / ${row}) maxPage
         FROM t_board
-        ORDER BY iboard DESC
-        LIMIT ${startIdx} ,${rowLen}
     </select>
 
 
