@@ -27,7 +27,7 @@
         FROM t_board
     </select>
 
-    <select id="selBoardById" resultType="BoardVo">
+    <select id="selBoardById" resultType="BoardDetailDto">
         SELECT *
         from
         WHERE iboard = #{iboard}
