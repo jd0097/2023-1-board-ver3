@@ -30,13 +30,10 @@ public class BoardService {
 
     public int selBoardMaxPage(int row) {
         int count = mapper.selBoardRowCount(row);
-        return (int)Math.ceil((double)count / row);
+        return (int) Math.ceil((double) count / row);
     }
-    public BoardDetailDto selbyBoard(BoardDetailDto dto){
 
+    public BoardDetailDto selbyBoard(BoardDetailDto dto) {
         return mapper.selbyBoard(dto);
-}
-public int delBoard(BoardDetailDto dto){
-        return 0;
-}
+    }
 }

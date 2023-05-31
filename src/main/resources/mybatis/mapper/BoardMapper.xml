@@ -32,4 +32,9 @@
         from t_board
         WHERE iboard = #{iboard}
     </select>
+    <delete id="delBoard">
+        DELETE FROM t_board
+        WHERE iboard = #{iboard}
+        , iuser = #{iuser}
+    </delete>
 </mapper>
