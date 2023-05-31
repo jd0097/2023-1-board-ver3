@@ -44,7 +44,7 @@ public class BoardController {
 
 
 
-        return service.selMaxBoard(row);
+        return service.selMaxBoad(row);
 
     }
 
