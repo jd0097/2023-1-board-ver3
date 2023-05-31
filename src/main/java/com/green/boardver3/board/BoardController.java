@@ -48,8 +48,8 @@ public class BoardController {
         return service.selbyBoard(dto);
 
     }
-    @DeleteMapping("/{iboard}&{iuser}")
-    public int delBoard(@PathVariable int iboard,@PathVariable int iuser){
+    @DeleteMapping
+    public int delBoard(@RequestParam("iboard") int iboard,@RequestParam("iuser") int iuser){
         BoardDetailDto dto = new BoardDetailDto();
         dto.setIboard(iboard);
         dto.setIuser(iuser);
