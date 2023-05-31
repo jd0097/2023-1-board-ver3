@@ -30,7 +30,7 @@ public int selMaxBoad(int row){
     int count = mapper.selMaxBoard(row);
     return  (int)Math.ceil((double)count/row);
 }
-public BoardSelDto selBoardById(BoardDto dto){
+public BoardSelDto selBoardById(BoardSelDto dto){
 
     return mapper.selBoardById(dto);
 }
