@@ -44,8 +44,9 @@ public class BoardController {
     }
     @GetMapping("/{iboard}")
     public BoardSelDto getBoardDetail(@PathVariable int iboard){
-            BoardDto dto = new BoardDto();
-            dto.
+            BoardSelDto dto = new BoardSelDto();
+            dto.setIboard(iboard);
+            return service.selBoardById(dto);
     }
 
 
