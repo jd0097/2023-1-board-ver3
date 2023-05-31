@@ -16,7 +16,7 @@ public class CmtService {
     }
 
     public int insCmt(CmtInsDto dto){
-        return mapper
+        return mapper.insCmt(dto);
     }
 
 }
