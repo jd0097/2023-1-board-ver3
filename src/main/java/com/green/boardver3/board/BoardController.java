@@ -1,9 +1,6 @@
 package com.green.boardver3.board;
 
-import com.green.boardver3.board.model.BoardDto;
-import com.green.boardver3.board.model.BoardEntity;
-import com.green.boardver3.board.model.BoardInsDto;
-import com.green.boardver3.board.model.BoardVo;
+import com.green.boardver3.board.model.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import org.slf4j.Logger;
@@ -45,5 +42,10 @@ public class BoardController {
         return service.selMaxBoad(row);
 
     }
+    @GetMapping("/{iboard}")
+    public BoardSelMaxDto getBoardDetail(@PathVariable int iboard){
+
+    }
+
 
 }
