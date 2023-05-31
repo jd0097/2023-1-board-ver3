@@ -12,4 +12,5 @@ import java.util.List;
 public interface BoardMapper {
     public int insBoard(BoardInsDto dto);
     List<BoardVo> selBoardAll(BoardDto dto);
+    int selMaxBoard(BoardDto dto);
 }
