@@ -39,9 +39,12 @@ public class BoardController {
 
         return service.selBoardAll(dto);
     }
-    @GetMapping
-    public List<BoardVo> getMaxBoard(@RequestParam @Max){
+    @GetMapping("/maxpage")
+    public int getBoardMax(@RequestParam int row ){
 
+
+
+        return service.selMaxBoard(row);
 
     }
 
