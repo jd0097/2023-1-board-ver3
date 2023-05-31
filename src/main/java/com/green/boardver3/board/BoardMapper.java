@@ -1,9 +1,6 @@
 package com.green.boardver3.board;
 
-import com.green.boardver3.board.model.BoardDto;
-import com.green.boardver3.board.model.BoardEntity;
-import com.green.boardver3.board.model.BoardInsDto;
-import com.green.boardver3.board.model.BoardVo;
+import com.green.boardver3.board.model.*;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -12,5 +9,5 @@ import java.util.List;
 public interface BoardMapper {
     public int insBoard(BoardInsDto dto);
     List<BoardVo> selBoardAll(BoardDto dto);
-    int selMaxBoard(BoardDto dto);
+    List<BoardVo> selMaxBoard(BoardSelMaxDto dto);
 }
