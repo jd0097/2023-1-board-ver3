@@ -1,6 +1,9 @@
 package com.green.boardver3.board;
 
-import com.green.boardver3.board.model.*;
+import com.green.boardver3.board.model.BoardDetailDto;
+import com.green.boardver3.board.model.BoardInsDto;
+import com.green.boardver3.board.model.BoardSelDto;
+import com.green.boardver3.board.model.BoardVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +32,8 @@ public class BoardService {
         int count = mapper.selBoardRowCount(row);
         return (int)Math.ceil((double)count / row);
     }
-    public BoardDetailVo selbyBoard(BoardDetailDto dto){
-        return mapper.selByBoard(dto);
+    public BoardDetailDto selbyBoard(BoardDetailDto dto){
+
+        return mapper.selbyBoard(dto);
 }
 }
