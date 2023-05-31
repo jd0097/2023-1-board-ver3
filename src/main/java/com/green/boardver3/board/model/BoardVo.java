@@ -13,4 +13,5 @@ public class BoardVo {
     private int iuser;
     private String createdAt;
     private String updatedAt;
+    private String iuserMainPic;
 }
