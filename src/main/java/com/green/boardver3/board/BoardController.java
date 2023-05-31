@@ -52,8 +52,8 @@ public class BoardController {
     public int delBoard(@PathVariable int iboard,@PathVariable int iuser){
         BoardDetailDto dto = new BoardDetailDto();
         dto.setIboard(iboard);
-        dto.getIuser();
-        return service.
+        dto.setIuser(iuser);
+        return service.delBoard(dto);
     }
 
 }
