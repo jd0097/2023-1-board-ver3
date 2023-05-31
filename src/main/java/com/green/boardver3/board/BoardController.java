@@ -42,12 +42,7 @@ public class BoardController {
         return service.selMaxBoad(row);
 
     }
-    @GetMapping("/{iboard}")
-    public BoardSelDto getBoardDetail(@PathVariable int iboard){
-            BoardSelDto dto = new BoardSelDto();
-            dto.setIboard(iboard);
-            return service.selBoardById(dto);
-    }
+
 
 
 }
