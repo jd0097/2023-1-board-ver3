@@ -42,10 +42,10 @@ public class BoardController {
     }
 
     @GetMapping("/{iboard}")
-    public BoardVo getBoardDetail(@PathVariable int iboard){
-        BoardDetailDto vo = new BoardDetailDto();
-        vo.setIboard(iboard);
-        return service.selbyBoard(vo);
+    public BoardDetailDto getBoardDetail(@PathVariable int iboard){
+        BoardDetailDto dto = new BoardDetailDto();
+        dto.setIboard(iboard);
+        return service.selbyBoard(dto);
 
     }
 
