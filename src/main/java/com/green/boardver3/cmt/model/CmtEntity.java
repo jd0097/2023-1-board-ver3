@@ -8,4 +8,6 @@ public class CmtEntity {
     private int iboard;
     private int iuser;
     private String ctnt;
+    private String createdAt;
+    private String updatedAt;
 }
