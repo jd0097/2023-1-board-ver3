@@ -27,4 +27,9 @@
         FROM t_board
     </select>
 
+    <select id="selBoardById" resultType="BoardVo">
+        SELECT *
+        from
+        WHERE iboard = #{iboard}
+    </select>
 </mapper>
