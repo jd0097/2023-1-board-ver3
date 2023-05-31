@@ -15,4 +15,7 @@
         ORDER BY iboard DESC
         LIMIT ${startIdx} ,${rowLen}
     </select>
+
+
+
 </mapper>

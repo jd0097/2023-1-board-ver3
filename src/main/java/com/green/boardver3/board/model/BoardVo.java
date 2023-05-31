@@ -1,8 +1,11 @@
 package com.green.boardver3.board.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 
 @Data
+
 public class BoardVo {
     private int iboard;
     private String title;
