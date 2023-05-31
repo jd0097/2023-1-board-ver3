@@ -15,6 +15,12 @@
         ORDER BY iboard DESC
         LIMIT ${startIdx} ,${rowLen}
     </select>
+    <select id="selBoardMaxPage" resultType="BoardVo">
+        SELECT *
+        FROM t_board
+        ORDER BY iboard DESC
+        LIMIT ${startIdx} ,${rowLen}
+    </select>
 
 
 
