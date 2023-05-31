@@ -24,7 +24,7 @@ public class BoardService {
     public List<BoardVo> selBoardAll(BoardDto dto){
     int startIdx = (dto.getPage() -1) * dto.getRowLen();
     dto.setRowLen(dto.getRowLen());
-    dto.setPage(startIdx);
+    dto.setStartIdx(startIdx);
 
 
     return mapper.selBoardAll(dto);
