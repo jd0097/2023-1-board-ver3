@@ -48,7 +48,11 @@ public class BoardController {
         return service.selbyBoard(dto);
 
     }
-
-
+    @DeleteMapping("/{iboard}")
+    public int delBoard(@PathVariable int iboard){
+        BoardDetailDto dto = new BoardDetailDto();
+        dto.setIboard(iboard);
+        return service.
+    }
 
 }
