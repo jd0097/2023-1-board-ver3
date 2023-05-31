@@ -32,7 +32,7 @@ public class BoardService {
         int count = mapper.selBoardRowCount(row);
         return (int)Math.ceil((double)count / row);
     }
-    public BoardDetailDto selbyBoard(BoardDetailDto dto){
+    public BoardVo selbyBoard(BoardDetailDto dto){
 
         return mapper.selbyBoard(dto);
 }
