@@ -5,7 +5,9 @@
 <mapper namespace="com.green.boardver3.board.BoardMapper">
 
 
-    <insert id="insBoard" useGeneratedKeys="true" keyProperty="iboard">
+    <insert id="insBoard"
+            useGeneratedKeys="true"
+            keyProperty="iboard">
         INSERT INTO t_board
         SET title = #{title}
         , ctnt = #{ctnt}
