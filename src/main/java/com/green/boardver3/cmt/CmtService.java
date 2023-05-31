@@ -15,7 +15,7 @@ public class CmtService {
         this.mapper = mapper;
     }
 
-    public int insCmt(CmtInsDto dto){
+    public int insCmt(CmtEntity dto){
         return mapper.insCmt(dto);
     }
 
