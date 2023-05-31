@@ -41,9 +41,6 @@ public class BoardController {
     }
     @GetMapping("/maxpage")
     public int getBoardMax(@RequestParam int row ){
-
-
-
         return service.selMaxBoad(row);
 
     }
