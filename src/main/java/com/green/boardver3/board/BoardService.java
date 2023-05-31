@@ -39,7 +39,7 @@ public class BoardService {
     public int delBoard(BoardDetailDto dto){
         return mapper.delBoard(dto);
     }
-    public int updBoard(BoardDetailDto dto){
+    public int updBoard(BoardUpdDto dto){
         return mapper.updBoard(dto);
     }
 }

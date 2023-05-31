@@ -32,10 +32,17 @@
         from t_board
         WHERE iboard = #{iboard}
     </select>
+    <update id="updBoard">
+        UPDATE t_board
+        SET title = #{title}
+        , ctnt = #{ctnt}
+        , updated_at updatedAt = now()
+        WHERE iboard = ${iboard} AND iuser = ${iuser}
+    </update>
     <delete id="delBoard">
         Delete from
         t_board
         WHERE iboard = #{iboard} AND iuser = #{iuser}
-
     </delete>
+
 </mapper>
