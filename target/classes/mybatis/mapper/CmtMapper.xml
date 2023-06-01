@@ -12,7 +12,7 @@
         (#{iboard}, #{iuser}, #{ctnt})
 
     </insert>
-    <select id="selCmt">
+    <select id="selCmt" resultType="CmtVo">
         SELECT A.iboardcmt,A.iboard,A.iuser,A.ctnt,A.created_At createdAt,
         B.nm wrtier,B.main_pic writerMainPic
         FROM t_board_cmt A
@@ -20,14 +20,9 @@
         ON A.iuser = B.iuser
         WHERE A.iboard=#{iboard}
         LIMIT #{startIdx},#{row}
-
-
     </select>
-
     <delete id="delCmt">
-        delete
-        from t_board_cmt
-        where iboardCmt=#{iboardCmt}
-
+        DELETE from t_board_cmt
+        WHERE iboardCmt = #{iboardCmt}
     </delete>
 </mapper>
