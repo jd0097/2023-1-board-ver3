@@ -12,36 +12,37 @@ import java.util.List;
 
 @Service
 public class CmtService {
-     private final CmtMapper mapper;
-     private final int ROW = 5;
-     @Autowired
+    private final CmtMapper mapper;
+    private final int ROW = 5;
+
+    @Autowired
     public CmtService(CmtMapper mapper) {
         this.mapper = mapper;
     }
 
-    public int insCmt(CmtInsDto dto){
-
+    public int insCmt(CmtEntity entity) {
         //entity.setIboard(dto.getIboard());
-         entity.setIuser(dto.getIuser());
-         entity.setCtnt(dto.getCtnt());
-         try{
-             int result = mapper.insCmt(entity);
-             if (result == 1) {
-                 return entity.getIboardCmt();
-             }
-         } catch (Exception e) {
-             e.printStackTrace();
-         }
+        CmtInsDto dto = new CmtInsDto();
+        entity.setIuser(dto.getIuser());
+        entity.setCtnt(dto.getCtnt());
+        try {
+            int result = mapper.insCmt(entity);
+            if (result == 1) {
+                return entity.getIboardCmt();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return 0;
     }
 
-    public List<CmtVo> selCmt(CmtSelDto dto){
-         dto.setRow(ROW);
+    public List<CmtVo> selCmt(CmtSelDto dto) {
+        dto.setRow(ROW);
         int startIdx = (dto.getPage() - 1) * dto.getRow();
         dto.setStartIdx(startIdx);
+
         return mapper.selCmt(dto);
     }
-
 
 
 }
