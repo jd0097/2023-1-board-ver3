@@ -9,7 +9,6 @@ import java.util.List;
 public interface CmtMapper {
     int insCmt(CmtEntity entity);
     List<CmtVo> selCmt(CmtSelDto dto);
-    int updCmt(CmtUpdDto dto);
     int delCmt(CmtEntity entity);
     int upCmt(CmtEntity entity);
 }

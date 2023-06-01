@@ -35,9 +35,6 @@ public class CmtService {
         return mapper.selCmt(dto);
     }
 
-    public int updCmt(CmtUpdDto dto) {
-        return mapper.updCmt(dto);
-    }
     public int delCmt(CmtEntity entity) {
         return mapper.delCmt(entity);
     }
