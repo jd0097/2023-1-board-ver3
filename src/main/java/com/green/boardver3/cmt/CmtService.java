@@ -29,10 +29,17 @@ public class CmtService {
         return 0;
     }
 
-    public List<CmtVo> selCmt(CmtSelDto dto) {
+    public CmtRes selCmt(CmtSelDto dto) {
         int startIdx = (dto.getPage() - 1) * dto.getRow();
         dto.setStartIdx(startIdx);
-        return mapper.selCmt(dto);
+        List<CmtVo> list = mapper.selCmt(dto);
+
+        int isMore = 0;
+
+        return CmtRes.builder()
+                .list(list)
+                .isMore(isMore)
+                .build();
     }
 
     public int delCmt(CmtEntity entity) {
