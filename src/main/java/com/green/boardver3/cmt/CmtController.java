@@ -20,7 +20,11 @@ public class CmtController {
     @PostMapping("/{iboard}")
     public int insCmt(@PathVariable int iboard
                     , @RequestBody CmtInsDto dto){
-        return service.insCmt(dto);
+    CmtEntity entity = new CmtEntity();
+    entity.setIboard(iboard);
+    entity.setIuser(dto.getIuser());
+    entity.setCtnt(dto.getCtnt());
+        return service.insCmt(entity);
     }
     @GetMapping
     public List<CmtVo> getCmt( @RequestParam int page
