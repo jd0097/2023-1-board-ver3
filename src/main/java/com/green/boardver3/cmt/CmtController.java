@@ -22,10 +22,14 @@ public class CmtController {
         return service.insCmt(dto);
     }
     @GetMapping("/{iboard}")
-    public CmtSelDto getCmt(@RequestParam ("iboard") int iboard
+    public List<CmtVo> getCmt(@RequestParam ("iboard") int iboard
                         , @RequestParam ("row") int row
-                        , @RequestParam CmtVo vo) {
-        CmtEntity entity = new CmtEntity();
-        return null;
+                        , @RequestParam ("page") int page
+                        , @RequestParam CmtSelDto dto) {
+        CmtVo vo = new CmtVo();
+        dto.setPage(page);
+        dto.setRow(row);
+        vo.setIboard(iboard);
+        return service.selCmt(dto);
     }
 }
