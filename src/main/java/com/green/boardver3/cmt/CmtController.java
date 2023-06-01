@@ -20,8 +20,9 @@ public class CmtController {
         return service.insCmt(dto);
     }
     @GetMapping("/{iboard}")
-    public CmtEntity getCmt(@RequestParam ("iboard") int iboard
+    public CmtVo getCmt(@RequestParam ("iboard") int iboard
                         , @RequestParam ("row") int row) {
+        CmtEntity entity = new CmtEntity();
         return null;
     }
 }
