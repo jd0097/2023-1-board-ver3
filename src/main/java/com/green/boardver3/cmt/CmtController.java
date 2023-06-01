@@ -19,4 +19,9 @@ public class CmtController {
     public int insCmt(@RequestBody CmtInsDto dto){
         return service.insCmt(dto);
     }
+    @GetMapping("/{iboard}")
+    public List<> getCmt(@RequestParam ("iboard") int iboard
+                        , @RequestParam ("row") int row) {
+        return null;
+    }
 }
