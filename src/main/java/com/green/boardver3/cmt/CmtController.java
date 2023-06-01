@@ -24,7 +24,7 @@ public class CmtController {
         return service.insCmt(entity);
     }
     @GetMapping("/{iboard}/cmt")
-    public List<CmtVo> getCmt(@PathVariable int iboard
+    public CmtRes getCmt(@PathVariable int iboard
                               ,@RequestParam int page
                              ,@RequestParam (defaultValue = "5") int row) {
         CmtSelDto dto = new CmtSelDto();
