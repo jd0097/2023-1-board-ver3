@@ -1,13 +1,16 @@
 package com.green.boardver3.cmt.model;
 
-import lombok.Data;
-@Data
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public class CmtVo {
     private int iboardcmt;
     private int iboard;
     private int iuser;
-    private String ctnt;
     private String writer;
     private String writerMainPic;
-    private String createAt;
+    private String ctnt;
+    private String createdAt;
 }
