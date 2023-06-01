@@ -21,13 +21,23 @@
         WHERE A.iboard=#{iboard}
         LIMIT #{startIdx},#{row}
     </select>
+    <update id="updCmt">
+        UPDATE t_board_cmt
+        SET ctnt = #{ctnt}
+        WHERE iboardCmt = #{iboardCmt}
+        AND iuser = #{iuser}
+    </update>
     <delete id="delCmt">
         DELETE from t_board_cmt
         WHERE iboardCmt = #{iboardCmt}
+        AND iuser = #{iuser}
     </delete>
     <update id="upCmt">
         UPDATE t_board_cmt
-        set  ctnt = #{ctnt}
-        WHERE iboard = ${iboardCmt} AND iuser = ${iuser}
-  </update>
+        SET
+        iuser =#{iuser},
+        ctnt =#{ctnt}
+        where iboardCmt = #{iboardCmt}
+
+    </update>
 </mapper>

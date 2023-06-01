@@ -10,48 +10,50 @@ import java.util.List;
 @RequestMapping("/board/cmt")
 public class CmtController {
     private final CmtService service;
-
-    @Autowired
+@Autowired
     public CmtController(CmtService service) {
         this.service = service;
     }
-
     @PostMapping("/{iboard}/cmt")
     public int insCmt(@PathVariable int iboard
-            , @RequestBody CmtInsDto dto) {
-        CmtEntity entity = new CmtEntity();
-        entity.setIboard(iboard);
-        entity.setIuser(dto.getIuser());
-        entity.setCtnt(dto.getCtnt());
+                    , @RequestBody CmtInsDto dto){
+    CmtEntity entity = new CmtEntity();
+    entity.setIboard(iboard);
+    entity.setIuser(dto.getIuser());
+    entity.setCtnt(dto.getCtnt());
         return service.insCmt(entity);
     }
-
     @GetMapping("/{iboard}/cmt")
     public List<CmtVo> getCmt(@PathVariable int iboard
-            , @RequestParam int page
-            , @RequestParam(defaultValue = "5") int row) {
+                              ,@RequestParam int page
+                             ,@RequestParam (defaultValue = "5") int row) {
         CmtSelDto dto = new CmtSelDto();
         dto.setPage(page);
         dto.setRow(row);
         dto.setIboard(iboard);
         return service.selCmt(dto);
     }
+    @PutMapping("/cmt/{iboardCmt}")
+    public int updCmt(@PathVariable int iboardCmt
+                    ,@RequestBody CmtUpdDto dto) {
+        CmtEntity entity = new CmtEntity();
+        entity.setIuser(dto.getIuser());
+        entity.setCtnt(dto.getCtnt());
+        entity.setIboardCmt(iboardCmt);
+        return service.updCmt(dto);
+    }
 
-    @DeleteMapping("/{iboardCmt}")
+    @DeleteMapping("/cmt/{iboardCmt}")
     public int delCmt(@PathVariable int iboardCmt
-            , @RequestParam int iuser) {
+                        , @RequestParam int iuser) {
         CmtEntity entity = new CmtEntity();
         entity.setIboardCmt(iboardCmt);
         entity.setIuser(iuser);
         return service.delCmt(entity);
     }
-
     @PutMapping("/{iboardCmt}")
-    public int putCmt(@PathVariable int iboardCmt,@RequestBody CmtUpDto dto) {
-        CmtUpDto vo = new CmtUpDto();
-        vo.setCtnt(dto.getCtnt());
-        vo.setIuser(dto.getIuser());
-        vo.setIboardCmt(iboardCmt);
-        return service.upCmt(vo);
+    public int upCmt(@PathVariable int iboardCmt, @RequestBody CmtEntity entity){
+    entity.setIboardCmt(iboardCmt);
+    return service.upCmt(entity);
     }
 }
