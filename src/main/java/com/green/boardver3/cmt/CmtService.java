@@ -34,6 +34,9 @@ public class CmtService {
         dto.setStartIdx(startIdx);
         return mapper.selCmt(dto);
     }
+    public int delCmt(CmtEntity entity) {
+        return mapper.delCmt(entity);
+    }
 
     public int delCmt(CmtdelDto dto){
         return mapper.delCmt(dto);

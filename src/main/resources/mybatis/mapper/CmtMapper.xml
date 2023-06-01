@@ -22,10 +22,7 @@
         LIMIT #{startIdx},#{row}
     </select>
     <delete id="delCmt">
-        delete from t_board_cmt
+        DELETE from t_board_cmt
         WHERE iboardCmt = #{iboardCmt}
-
     </delete>
-
-
 </mapper>
