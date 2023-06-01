@@ -21,8 +21,8 @@ public class CmtService {
     }
 
     public int insCmt(CmtEntity entity) {
-        //entity.setIboard(dto.getIboard());
         CmtInsDto dto = new CmtInsDto();
+        //entity.setIboard(dto.getIboard());
         entity.setIuser(dto.getIuser());
         entity.setCtnt(dto.getCtnt());
         try {
