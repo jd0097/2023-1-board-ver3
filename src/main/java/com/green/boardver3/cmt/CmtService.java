@@ -21,11 +21,7 @@ public class CmtService {
     }
 
     public int insCmt(CmtEntity entity) {
-        //entity.setIboard(dto.getIboard());
-        CmtInsDto dto = new CmtInsDto();
-        entity.setIuser(dto.getIuser());
-        entity.setCtnt(dto.getCtnt());
-        try {
+         try {
             int result = mapper.insCmt(entity);
             if (result == 1) {
                 return entity.getIboardCmt();
