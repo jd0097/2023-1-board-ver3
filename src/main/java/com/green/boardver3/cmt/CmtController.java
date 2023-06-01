@@ -17,6 +17,6 @@ public class CmtController {
     }
     @PostMapping
     public int insCmt(@RequestBody CmtInsDto dto){
-    return service.insCmt(dto);
+        return service.insCmt(dto);
     }
 }
