@@ -25,7 +25,7 @@ public class CmtController {
     public List<CmtVo> getCmt(@RequestParam ("iboard") int iboard
                         , @RequestParam ("row") int row
                         , @RequestParam ("page") int page
-                        , @RequestParam CmtSelDto dto) {
+                        , @RequestBody CmtSelDto dto) {
         CmtVo vo = new CmtVo();
         dto.setPage(page);
         dto.setRow(row);
