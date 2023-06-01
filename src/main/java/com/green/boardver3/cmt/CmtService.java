@@ -33,15 +33,22 @@ public class CmtService {
         int startIdx = (dto.getPage() - 1) * dto.getRow();
         dto.setStartIdx(startIdx);
         List<CmtVo> list = mapper.selCmt(dto);
-
         int isMore = 0;
+        int noMore = 1;
 
-        return CmtRes.builder()
-                .list(list)
-                .isMore(isMore)
-                .build();
+        try{
+            if(list.size() < dto.getRow()) {
+                return CmtRes.builder().list(list).isMore(isMore).build();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+            return CmtRes.builder()
+                    .list(list)
+                    .isMore(noMore)
+                    .build();
+
     }
-
     public int delCmt(CmtEntity entity) {
         return mapper.delCmt(entity);
     }
