@@ -1,5 +1,6 @@
 package com.green.boardver3.cmt;
 
+import com.green.boardver3.board.model.BoardSelDto;
 import com.green.boardver3.cmt.model.CmtEntity;
 import com.green.boardver3.cmt.model.CmtInsDto;
 import com.green.boardver3.cmt.model.CmtSelDto;
@@ -21,15 +22,10 @@ public class CmtController {
     public int insCmt(@RequestBody CmtInsDto dto){
         return service.insCmt(dto);
     }
-    @GetMapping
-    public List<CmtVo> getCmt(@RequestParam ("iboard") int iboard
-                             , @RequestParam ("page") int page
-                             ,@RequestParam ("row") int row) {
-        CmtVo vo = new CmtVo();
-        CmtSelDto dto = new CmtSelDto();
-        dto.setPage(page);
+    @GetMapping("/iboard")
+    public List<CmtVo> getCmt(@PathVariable int iboard ,@RequestParam (defaultValue = "5") int row ){
+       CmtSelDto dto = new CmtSelDto();
         dto.setRow(row);
-        vo.setIboard(iboard);
         return service.selCmt(dto);
     }
 }
