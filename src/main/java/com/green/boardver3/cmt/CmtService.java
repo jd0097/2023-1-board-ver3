@@ -1,9 +1,6 @@
 package com.green.boardver3.cmt;
 
-import com.green.boardver3.cmt.model.CmtEntity;
-import com.green.boardver3.cmt.model.CmtInsDto;
-import com.green.boardver3.cmt.model.CmtSelDto;
-import com.green.boardver3.cmt.model.CmtVo;
+import com.green.boardver3.cmt.model.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +33,10 @@ public class CmtService {
         int startIdx = (dto.getPage() - 1) * dto.getRow();
         dto.setStartIdx(startIdx);
         return mapper.selCmt(dto);
+    }
+
+    public int updCmt(CmtUpdDto dto) {
+        return mapper.updCmt(dto);
     }
     public int delCmt(CmtEntity entity) {
         return mapper.delCmt(entity);

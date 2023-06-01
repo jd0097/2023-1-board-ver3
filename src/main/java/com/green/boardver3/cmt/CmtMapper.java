@@ -1,9 +1,6 @@
 package com.green.boardver3.cmt;
 
-import com.green.boardver3.cmt.model.CmtEntity;
-import com.green.boardver3.cmt.model.CmtInsDto;
-import com.green.boardver3.cmt.model.CmtSelDto;
-import com.green.boardver3.cmt.model.CmtVo;
+import com.green.boardver3.cmt.model.*;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -12,5 +9,6 @@ import java.util.List;
 public interface CmtMapper {
     int insCmt(CmtEntity entity);
     List<CmtVo> selCmt(CmtSelDto dto);
+    int updCmt(CmtUpdDto dto);
     int delCmt(CmtEntity entity);
 }
