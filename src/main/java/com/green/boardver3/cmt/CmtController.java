@@ -43,8 +43,11 @@ public class CmtController {
         return service.delCmt(entity);
     }
     @PutMapping("/{iboardCmt}")
-    public int upCmt(@PathVariable int iboardCmt, @RequestBody CmtEntity entity){
+    public int upCmt(@PathVariable int iboardCmt, @RequestBody CmtUpdDto dto){
+    CmtEntity entity = new CmtEntity();
     entity.setIboardCmt(iboardCmt);
+    entity.setIuser(dto.getIuser());
+    entity.setCtnt(dto.getCtnt());
     return service.upCmt(entity);
     }
 }
