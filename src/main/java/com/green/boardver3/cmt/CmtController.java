@@ -20,7 +20,7 @@ public class CmtController {
         return service.insCmt(dto);
     }
     @GetMapping("/{iboard}")
-    public List<> getCmt(@RequestParam ("iboard") int iboard
+    public CmtEntity getCmt(@RequestParam ("iboard") int iboard
                         , @RequestParam ("row") int row) {
         return null;
     }
