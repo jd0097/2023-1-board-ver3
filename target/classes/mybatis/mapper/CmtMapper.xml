@@ -30,10 +30,9 @@
     <update id="upCmt">
         UPDATE t_board_cmt
         SET
-        iuser =#{iuser},
         ctnt =#{ctnt},
         updated_at = current_timestamp()
-        where iboardCmt = #{iboardCmt}
+        where iboardCmt = #{iboardCmt} and iuser =#{iuser}
 
     </update>
 </mapper>
