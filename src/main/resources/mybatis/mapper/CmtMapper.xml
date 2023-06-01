@@ -13,11 +13,13 @@
 
     </insert>
     <select id="selCmt" resultType="CmtSelDto">
-        SELECT iboardcmt
+        SELECT A.iboardcmt,A.iboard,A.iuser,A.ctnt,A.created_At createdAt,
+        B.nm wrtier,B.main_pic writerMainPic
         FROM t_board_cmt A
         INNER JOIN t_user B
         ON A.iuser = B.iuser
-        WHERE iboard
+        WHERE A.iboard=#{iboard}
+        LIMIT #{startIdx},#{row}
 
 
     </select>
