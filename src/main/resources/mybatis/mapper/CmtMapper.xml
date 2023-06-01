@@ -13,7 +13,12 @@
 
     </insert>
     <select id="selCmt" resultType="CmtSelDto">
-        
+        SELECT iboardcmt
+        FROM t_board_cmt A
+        INNER JOIN t_user B
+        ON A.iuser = B.iuser
+        WHERE iboard
+
 
     </select>
 </mapper>
