@@ -17,7 +17,7 @@ public class CmtController {
     public CmtController(CmtService service) {
         this.service = service;
     }
-    @PostMapping("/{iboard}")
+    @PostMapping("/{iboard}/cmt")
     public int insCmt(@PathVariable int iboard
                     , @RequestBody CmtInsDto dto){
     CmtEntity entity = new CmtEntity();
@@ -26,7 +26,7 @@ public class CmtController {
     entity.setCtnt(dto.getCtnt());
         return service.insCmt(entity);
     }
-    @GetMapping("/{iboard}")
+    @GetMapping("/{iboard}/cmt")
     public List<CmtVo> getCmt(@PathVariable int iboard
                               ,@RequestParam int page
                              ,@RequestParam (defaultValue = "5") int row) {
