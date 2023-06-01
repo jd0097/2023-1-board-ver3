@@ -33,7 +33,7 @@ public class CmtService {
     }
 
     public List<CmtVo> selCmt(CmtSelDto dto) {
-        dto.setRow(ROW);
+
         int startIdx = (dto.getPage() - 1) * dto.getRow();
         dto.setStartIdx(startIdx);
 
