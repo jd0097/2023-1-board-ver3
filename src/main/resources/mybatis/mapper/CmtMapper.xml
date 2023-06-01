@@ -25,4 +25,12 @@
         DELETE from t_board_cmt
         WHERE iboardCmt = #{iboardCmt}
     </delete>
+    <update id="upCmt">
+        UPDATE t_board_cmt
+        SET
+        iuser =#{iuser},
+        ctnt =#{ctnt}
+        where iboardCmt = #{iboardCmt}
+
+    </update>
 </mapper>
