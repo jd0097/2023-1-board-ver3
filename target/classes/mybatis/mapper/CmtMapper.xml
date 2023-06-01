@@ -12,7 +12,7 @@
         (#{iboard}, #{iuser}, #{ctnt})
 
     </insert>
-    <select id="selCmt" resultType="CmtSelDto">
+    <select id="selCmt" resultType="CmtVo">
         SELECT A.iboardcmt,A.iboard,A.iuser,A.ctnt,A.created_At createdAt,
         B.nm wrtier,B.main_pic writerMainPic
         FROM t_board_cmt A
