@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/board")
+@RequestMapping("/board/cmt")
 public class CmtController {
     private final CmtService service;
 @Autowired
