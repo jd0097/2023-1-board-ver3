@@ -8,18 +8,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CmtService {
-     private final CmtMapper mapper;
+    private final CmtMapper mapper;
 
-     @Autowired
+    @Autowired
     public CmtService(CmtMapper mapper) {
         this.mapper = mapper;
     }
 
-    public int insCmt(CmtInsDto dto){
-         CmtEntity entity = new CmtEntity();
-         entity.setIboard(dto.getIboard());
-         entity.setIuser(dto.getIuser());
-         entity.setCtnt(dto.getCtnt());
+    public int insCmt(CmtInsDto dto) {
+        CmtEntity entity = new CmtEntity();
+        entity.setIboard(dto.getIboard());
+        entity.setIuser(dto.getIuser());
+        entity.setCtnt(dto.getCtnt());
         return mapper.insCmt(dto);
     }
 
