@@ -21,7 +21,7 @@ public class CmtService {
     }
 
     public int insCmt(CmtEntity entity) {
-         try {
+        try {
             int result = mapper.insCmt(entity);
             if (result == 1) {
                 return entity.getIboardCmt();
