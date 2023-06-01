@@ -2,6 +2,7 @@ package com.green.boardver3.cmt;
 
 import com.green.boardver3.cmt.model.CmtEntity;
 import com.green.boardver3.cmt.model.CmtInsDto;
+import com.green.boardver3.cmt.model.CmtSelDto;
 import com.green.boardver3.cmt.model.CmtVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,8 +23,13 @@ public class CmtController {
     }
     @GetMapping("/{iboard}")
     public List<CmtVo> getCmt(@RequestParam ("iboard") int iboard
-                        , @RequestParam ("row") int row) {
-        CmtEntity entity = new CmtEntity();
-        return null;
+                        , @RequestParam ("row") int row
+                        , @RequestParam ("page") int page
+                        , @RequestParam CmtSelDto dto) {
+        CmtVo vo = new CmtVo();
+        dto.setPage(page);
+        dto.setRow(row);
+        vo.setIboard(iboard);
+        return service.selCmt(dto);
     }
 }
