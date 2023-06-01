@@ -20,7 +20,9 @@
         ON A.iuser = B.iuser
         WHERE A.iboard=#{iboard}
         LIMIT #{startIdx},#{row}
-
-
     </select>
+    <delete id="delCmt">
+        DELETE from t_board_cmt
+        WHERE iboardCmt = #{iboardCmt}
+    </delete>
 </mapper>

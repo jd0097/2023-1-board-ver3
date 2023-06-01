@@ -12,4 +12,5 @@ import java.util.List;
 public interface CmtMapper {
     int insCmt(CmtEntity entity);
     List<CmtVo> selCmt(CmtSelDto dto);
+    int delCmt(CmtEntity entity);
 }
