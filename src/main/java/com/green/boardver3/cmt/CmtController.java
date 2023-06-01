@@ -24,9 +24,9 @@ public class CmtController {
     @GetMapping
     public List<CmtVo> getCmt(@RequestParam ("iboard") int iboard
                         , @RequestParam ("row") int row
-                        , @RequestParam ("page") int page
-                        , @RequestBody CmtSelDto dto) {
+                        , @RequestParam ("page") int page) {
         CmtVo vo = new CmtVo();
+        CmtSelDto dto = new CmtSelDto();
         dto.setPage(page);
         dto.setRow(row);
         vo.setIboard(iboard);
