@@ -38,4 +38,8 @@ public class CmtService {
         return mapper.delCmt(entity);
     }
 
+    public int upCmt(CmtUpDto dto){
+        return mapper.upCmt(dto);
+    }
+
 }
