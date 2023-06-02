@@ -33,6 +33,7 @@
         ctnt =#{ctnt},
         updated_at = current_timestamp()
         where iboardCmt = #{iboardCmt} and iuser =#{iuser}
-
     </update>
+
+
 </mapper>

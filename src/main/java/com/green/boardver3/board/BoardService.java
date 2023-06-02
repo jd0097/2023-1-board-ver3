@@ -42,6 +42,7 @@ public class BoardService {
         return mapper.selbyBoard(dto);
     }
     public int delBoard(BoardDetailDto dto){
+
         return mapper.delBoard(dto);
     }
     public int updBoard(BoardUpdDto dto){

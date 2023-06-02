@@ -36,24 +36,25 @@ public class CmtService {
         int isMore = 0;
         int noMore = 1;
 
-        try{
-            if(list.size() < dto.getRow()) {
+        try {
+            if (list.size() < dto.getRow()) {
                 return CmtRes.builder().list(list).isMore(isMore).build();
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-            return CmtRes.builder()
-                    .list(list)
-                    .isMore(noMore)
-                    .build();
+        return CmtRes.builder()
+                .list(list)
+                .isMore(noMore)
+                .build();
 
     }
+
     public int delCmt(CmtEntity entity) {
         return mapper.delCmt(entity);
     }
 
-    public int upCmt(CmtEntity entity){
+    public int upCmt(CmtEntity entity) {
         return mapper.upCmt(entity);
     }
 
