@@ -2,12 +2,14 @@ package com.green.boardver3.user;
 
 import com.green.boardver3.user.model.*;
 import com.green.boardver3.utils.CommonUtils;
+import com.green.boardver3.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.util.UUID;
 
 @Service
 public class UserService {
@@ -59,14 +61,21 @@ public class UserService {
         return mapper.updUserPw(dto);
     }
     public int updUserPic(MultipartFile pic, UserPatchPicDto dto){
-        //user/pk/uuid.jpg
-        //user/1/abcd.jpg
         String dicPath = String.format("%s/user/%d", fileDir, dto.getIuser()); //D:/download/board3/user/1
+        String savedFileName = pic.getOriginalFilename();
+        String savedFilePath = fileDir + savedFileName;
+        String abc = FileUtils.makeRandomFileNm(savedFilePath);
+        String dc = String.format("user"+"/",fileDir,dto.getIuser());
         File dic = new File(dicPath);
         if (!dic.exists()){
             dic.mkdirs();
         }
-
-        return 0;
+        try {
+            dto.setMainPic(dc+abc);
+            pic.transferTo(dic);
+          return  mapper.updUserPic(dto);
+        }catch (Exception e){
+            e.printStackTrace();
+        }return 0;
     }
 }

@@ -26,7 +26,7 @@
 
     <update id="updUserPic">
         Update t_user
-        set main_pic mainPic = #{mainPic}
+        set main_pic = #{mainPic}
         where iuser = #{iuser}
     </update>
 
