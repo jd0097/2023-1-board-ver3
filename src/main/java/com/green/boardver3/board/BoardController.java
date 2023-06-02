@@ -50,7 +50,11 @@ public class BoardController {
         BoardDelDto dto = new BoardDelDto();
         dto.setIboard(iboard);
         dto.setIuser(iuser);
-        return service.delBoard(dto);
+        try {
+            return service.delBoard(dto);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
     @PutMapping
     public int putBoard(@RequestBody BoardUpdDto dto){
