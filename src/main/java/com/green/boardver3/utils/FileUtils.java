@@ -1,25 +1,31 @@
 package com.green.boardver3.utils;
 
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.Random;
 import java.util.UUID;
 
 public class FileUtils {
-    //확장자 리턴하는 메소드
-    public static String getExt(String fileNm) {// abcd.123.hhh.jpg
+    public static String getExt(String fileNm){ // adcd.123.hhh.jpg ->jpg
 
-        int dotIdx = fileNm.lastIndexOf(".") + 1;
-        String ext = fileNm.substring(dotIdx);
-        return ext;
+       String result = fileNm.substring(
+               fileNm.lastIndexOf(".")+1);
+               return result;
     }
-
-    public static String getFileNm(String fileNm) {
-        return fileNm.substring(0, fileNm.lastIndexOf("."));
+//파일명만 리턴하는 메소드
+    public static String getFileNm(String fileNm){
+    int idx = fileNm.lastIndexOf(".");
+   String resultFileNm = fileNm.substring(0,idx);
+        return resultFileNm;
     }
+    // UUID 이용,랜덤값 파일명 리턴
+    public static String makeRandomFileNm(String fileNm){
 
-    public static String makeRandomFileNm(String fileNm) {
-        return UUID.randomUUID().toString() + "." + getExt(fileNm);
+    String uuid = UUID.randomUUID().toString();
+        String result = fileNm.substring(
+                fileNm.lastIndexOf("."));
+        String savedFileName = uuid + result;
 
-
+        return savedFileName;
     }
-
-
 }
