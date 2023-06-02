@@ -55,4 +55,7 @@ public class UserService {
         dto.setUpw(hashedPw);
         return mapper.updUserPw(dto);
     }
+    public int updUserPic(){
+        return 0;
+    }
 }

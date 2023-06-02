@@ -2,6 +2,7 @@ package com.green.boardver3.user;
 
 import com.green.boardver3.user.model.UserInsDto;
 import com.green.boardver3.user.model.UserLoginDto;
+import com.green.boardver3.user.model.UserPatchPicDto;
 import com.green.boardver3.user.model.UserPatchPwDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -52,6 +53,8 @@ public class UserController {
 
     @PatchMapping(name = "/pic", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE} )
     public int patchPicUser(@RequestPart MultipartFile pic, @RequestParam int iuser){
-        return 0;
+        UserPatchPicDto dto = new UserPatchPicDto();
+        dto.setIuser(iuser);
+        return service.updUserPic(pic,dto);
     }
 }
