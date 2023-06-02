@@ -4,6 +4,8 @@ import com.green.boardver3.board.model.*;
 import com.green.boardver3.cmt.CmtMapper;
 import com.green.boardver3.cmt.CmtService;
 import com.green.boardver3.cmt.model.CmtDelDto;
+import com.green.boardver3.cmt.model.CmtRes;
+import com.green.boardver3.cmt.model.CmtVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,7 +49,19 @@ public class BoardService {
     }
 
     public BoardDetailVo selBoardDetail(BoardSelDto dto) {
-        return mapper.selBoardDetail(dto);
+        int startIdx = (dto.getPage() - 1) * dto.getRow();
+        dto.setStartIdx(startIdx);
+        List<BoardCmtVo> list = mapper.selBoard(dto);
+        int rowCnt = mapper.selBoardCmtRowCountByIBoard(dto.getIboard());
+        int maxPage = (int)Math.ceil((double)rowCnt / dto.getRow());
+        int isMore = maxPage > dto.getPage() ? 1 : 0;
+
+        return BoardSelDto.builder()
+                .list(list)
+                .isMore(isMore)
+                .maxPage(maxPage)
+                .row(dto.getRow())
+                .build();
     }
 
     public int updBoard(BoardUpdDto dto) {
