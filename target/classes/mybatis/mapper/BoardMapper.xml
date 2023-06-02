@@ -42,13 +42,9 @@
         WHERE iboard = ${iboard} AND iuser = ${iuser}
     </update>
     <delete id="delBoard">
-        Delete from t_board A
-        INNER JOIN t_board_cmt B
-        ON A.iuser = B.iuser
+        Delete from t_board
         WHERE
-                A.iboard = #{iboard}
-                A.iuser = #{iuser}
-                B.iboardCmt = #{iboardCmt}
+        iboard = #{iboard} AND iuser = #{iuser}
     </delete>
 
 </mapper>

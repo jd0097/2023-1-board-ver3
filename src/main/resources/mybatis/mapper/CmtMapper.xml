@@ -28,7 +28,7 @@
 
     </select>
 
-    <delete id="delCmt">
+    <delete id="delCmt" parameterType="CmtEntity">
         DELETE from t_board_cmt
         WHERE
         <if test="iboardCmt > 0 and iuser > 0">

@@ -1,6 +1,7 @@
 package com.green.boardver3.board;
 
 import com.green.boardver3.board.model.*;
+import com.green.boardver3.cmt.model.CmtEntity;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -46,17 +47,19 @@ public class BoardController {
 
     }
     @DeleteMapping
-    public int delBoard(@RequestParam("iboard") int iboard,@RequestParam("iuser") int iuser)
-            throws Exception{
+    public int delBoard(@RequestParam("iboard") int iboard,@RequestParam("iuser") int iuser) throws Exception {
         BoardDelDto dto = new BoardDelDto();
         dto.setIboard(iboard);
         dto.setIuser(iuser);
-        return service.delBoard(dto);
+        try {
+            return service.delBoard(dto);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
     @PutMapping
     public int putBoard(@RequestBody BoardUpdDto dto){
     return service.updBoard(dto);
     }
-
 
 }
