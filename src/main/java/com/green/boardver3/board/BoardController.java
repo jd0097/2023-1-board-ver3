@@ -46,7 +46,7 @@ public class BoardController {
         BoardSelDto dto = new BoardSelDto();
         dto.setIboard(iboard);
 
-        return service.selBoardDetail(dto);
+        return service.dto);
     }
 
     @PutMapping
