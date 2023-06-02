@@ -56,6 +56,7 @@ public class UserService {
         return mapper.updUserPw(dto);
     }
     public int updUserPic(){
+
         return 0;
     }
 }
