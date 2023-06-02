@@ -12,4 +12,5 @@ public interface CmtMapper {
     int selBoardCmtRowCountByIBoard(int iboard);
     int delCmt(CmtEntity entity);
     int upCmt(CmtEntity entity);
+    int max(CmtRes res);
 }
