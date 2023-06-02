@@ -1,18 +1,21 @@
 package com.green.boardver3.user;
 
-import com.green.boardver3.user.model.UserInsDto;
-import com.green.boardver3.user.model.UserLoginDto;
-import com.green.boardver3.user.model.UserLoginVo;
-import com.green.boardver3.user.model.UserPatchPwDto;
+import com.green.boardver3.user.model.*;
 import com.green.boardver3.utils.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
 
 @Service
 public class UserService {
 
     private final UserMapper mapper;
     private final CommonUtils commonUtils;
+    @Value("${file.dir}")
+    private  String fileDir;
 
     @Autowired
     public UserService(UserMapper mapper, CommonUtils commonUtils) {
@@ -55,7 +58,14 @@ public class UserService {
         dto.setUpw(hashedPw);
         return mapper.updUserPw(dto);
     }
-    public int updUserPic(){
+    public int updUserPic(MultipartFile pic, UserPatchPicDto dto){
+        //user/pk/uuid.jpg
+        //user/1/abcd.jpg
+        String dicPath = String.format("%s/user/%d", fileDir, dto.getIuser()); //D:/download/board3/user/1
+        File dic = new File(dicPath);
+        if (!dic.exists()){
+            dic.mkdirs();
+        }
 
         return 0;
     }
