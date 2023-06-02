@@ -44,9 +44,9 @@ public class CmtService {
                     .build();
 
     }
-    public int delCmt(CmtEntity entity) {
+    public int delCmt(CmtDelDto dto) {
 
-        return mapper.delCmt(entity);
+        return mapper.delCmt(dto);
     }
 
     public int upCmt(CmtEntity entity){
