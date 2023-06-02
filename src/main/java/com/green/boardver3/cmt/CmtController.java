@@ -35,8 +35,7 @@ public class CmtController {
     }
 
     @DeleteMapping("/cmt/{iboardCmt}")
-    public int delCmt(@PathVariable int iboardCmt
-                        , @RequestParam int iuser) {
+    public int delCmt(@PathVariable int iboardCmt, @RequestParam int iuser) {
         CmtEntity entity = new CmtEntity();
         entity.setIboardCmt(iboardCmt);
         entity.setIuser(iuser);
