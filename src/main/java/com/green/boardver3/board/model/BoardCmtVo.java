@@ -1,5 +1,6 @@
 package com.green.boardver3.board.model;
 
+import com.green.boardver3.cmt.model.CmtRes;
 import com.green.boardver3.cmt.model.CmtVo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,8 +13,10 @@ import java.util.List;
 @AllArgsConstructor
 public class BoardCmtVo {
     private int iboard;
-    private int maxPage;
-    private int row;
-    private int isMore; //0 댓글 더 없음, 1 댓글 더 있음
-    private List<CmtVo> list;
+    private String title;
+    private String ctnt;
+    private String createdAt;
+    private String writer;
+    private String writerMainPic;
+    private CmtRes cmt;
 }

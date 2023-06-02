@@ -1,7 +1,6 @@
 package com.green.boardver3.board;
 
 import com.green.boardver3.board.model.*;
-import com.green.boardver3.cmt.CmtService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,12 +13,10 @@ import java.util.List;
 public class BoardController {
 
     private final BoardService service;
-    private final CmtService cmtservice;
 
     @Autowired
-    public BoardController(BoardService service, CmtService cmtservice) {
+    public BoardController(BoardService service) {
         this.service = service;
-        this.cmtservice = cmtservice;
     }
 
     @PostMapping
@@ -42,10 +39,9 @@ public class BoardController {
     }
 
     @GetMapping("/{iboard}")
-    public BoardDetailVo getBoardDetail(@PathVariable int iboard) {
+    public BoardCmtVo getBoardDetail(@PathVariable int iboard) {
         BoardSelDto dto = new BoardSelDto();
         dto.setIboard(iboard);
-
         return service.selBoardDetail(dto);
     }
 
