@@ -30,14 +30,9 @@
 
     <delete id="delCmt">
         DELETE from t_board_cmt
-        WHERE
-        <if test="iboardCm > 0 and iuser > 0">
-            iboardCmt = #{iboardCmt}
+        WHERE iboardCmt = #{iboardCmt}
             AND iuser = #{iuser}
-        </if>
-        <if test="iboard > 0">
-            iboard = #{iboard}
-        </if>
+            AND iboard = #{iboard}
     </delete>
     <update id="upCmt">
         UPDATE t_board_cmt

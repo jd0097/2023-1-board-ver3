@@ -10,4 +10,5 @@ public class BoardDetailDto {
     private int iuser;
     private String createdAt;
     private String updatedAt;
+    private String iboardCmt;
 }
