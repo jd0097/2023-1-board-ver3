@@ -2,6 +2,7 @@ package com.green.boardver3.board;
 
 import com.green.boardver3.board.model.*;
 import com.green.boardver3.cmt.CmtMapper;
+import com.green.boardver3.cmt.model.CmtDelDto;
 import com.green.boardver3.cmt.model.CmtEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,9 +52,9 @@ public class BoardService {
     }
     @Transactional(rollbackFor = Exception.class)
     public int delBoard(BoardDelDto dto) throws Exception{
-        CmtEntity entity = new CmtEntity();
-        entity.setIboardCmt(dto.getIboard());
-        cmtMapper.delCmt(entity);
+        CmtDelDto cmtdeldto = new CmtDelDto();
+        cmtdeldto.setIboardCmt(dto.getIboard());
+        cmtMapper.delCmt(cmtdeldto);
 
         int result = 0;
         result = mapper.delBoard(dto);

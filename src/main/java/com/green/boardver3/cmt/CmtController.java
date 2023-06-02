@@ -36,10 +36,10 @@ public class CmtController {
 
     @DeleteMapping("/cmt/{iboardCmt}")
     public int delCmt(@PathVariable int iboardCmt, @RequestParam int iuser) {
-        CmtEntity entity = new CmtEntity();
-        entity.setIboardCmt(iboardCmt);
-        entity.setIuser(iuser);
-        return service.delCmt(entity);
+        CmtDelDto dto = new CmtDelDto();
+        dto.setIboardCmt(iboardCmt);
+        dto.setIuser(iuser);
+        return service.delCmt(dto);
     }
     @PutMapping("/{iboardCmt}")
     public int upCmt(@PathVariable int iboardCmt, @RequestBody CmtUpDto dto){
