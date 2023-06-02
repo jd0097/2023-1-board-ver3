@@ -2,6 +2,7 @@ package com.green.boardver3.user;
 
 import com.green.boardver3.user.model.*;
 import com.green.boardver3.utils.CommonUtils;
+import com.green.boardver3.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -66,6 +67,9 @@ public class UserService {
         if (!dic.exists()){
             dic.mkdirs();
         }
+
+
+
 
         return 0;
     }
