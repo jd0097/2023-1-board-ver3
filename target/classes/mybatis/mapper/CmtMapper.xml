@@ -21,11 +21,23 @@
         WHERE A.iboard=#{iboard}
         LIMIT #{startIdx},#{row}
     </select>
+    <select id="max" resultType="int">
+        Select count(iboardcmt)
+        from t_board_cmt
+        where iboardcmt = #{iboardcmt}
+
+    </select>
 
     <delete id="delCmt">
         DELETE from t_board_cmt
-        WHERE iboardCmt = #{iboardCmt}
-        AND iuser = #{iuser}
+        WHERE
+        <if test="iboardCm > 0 and iuser > 0">
+            iboardCmt = #{iboardCmt}
+            AND iuser = #{iuser}
+        </if>
+        <if test="iboard > 0">
+            iboard = #{iboard}
+        </if>
     </delete>
     <update id="upCmt">
         UPDATE t_board_cmt
@@ -33,6 +45,7 @@
         ctnt =#{ctnt},
         updated_at = current_timestamp()
         where iboardCmt = #{iboardCmt} and iuser =#{iuser}
-
     </update>
+
+
 </mapper>
