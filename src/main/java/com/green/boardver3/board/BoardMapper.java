@@ -15,4 +15,7 @@ public interface BoardMapper {
     BoardDetailVo deBoard(BoardSelDto dto);
     int updBoard(BoardUpdDto dto);
     int delBoard(BoardDelDto dto);
+
+    int selBoardCmtRowCountByIBoard(int iboard);
+
 }

@@ -1,8 +1,9 @@
 package com.green.boardver3.board.model;
 
-import lombok.Builder;
+
 import lombok.Data;
-import lombok.Getter;
+
+import java.util.List;
 
 @Data
 public class BoardSelDto {
