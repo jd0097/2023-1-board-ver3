@@ -4,6 +4,8 @@ import com.green.boardver3.board.model.*;
 import com.green.boardver3.cmt.CmtMapper;
 import com.green.boardver3.cmt.CmtService;
 import com.green.boardver3.cmt.model.CmtDelDto;
+import com.green.boardver3.cmt.model.CmtRes;
+import com.green.boardver3.cmt.model.CmtSelDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -66,6 +68,19 @@ public class BoardService {
             throw new Exception("삭제 권한 없음");
         }
         return result;
+    }
+    public BoardDetailCmtvo deBoard(BoardSelDto dto){
+        BoardDetailVo vo = mapper.deBoard(dto);
+
+        CmtSelDto cmtDto = new CmtSelDto();
+        cmtDto.setIboard(dto.getIboard());
+        cmtDto.setPage(1);
+        cmtDto.setRow(5);
+        CmtRes cmt = cmtService.selBoardCmt(cmtDto);
+
+
+
+
     }
 
 
