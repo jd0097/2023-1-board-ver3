@@ -42,9 +42,9 @@
         WHERE iboard = ${iboard} AND iuser = ${iuser}
     </update>
     <delete id="delBoard">
-        Delete from
-        t_board
-        WHERE iboard = #{iboard} AND iuser = #{iuser}
+        Delete from t_board
+        WHERE
+        iboard = #{iboard} AND iuser = #{iuser}
     </delete>
 
 </mapper>
