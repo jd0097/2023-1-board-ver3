@@ -8,5 +8,4 @@ public class CmtSelDto {
     private int page;
     private int row;
     private int startIdx;
-
 }

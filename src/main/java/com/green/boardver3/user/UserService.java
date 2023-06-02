@@ -1,6 +1,6 @@
 package com.green.boardver3.user;
 
-import com.green.boardver3.user.model.UserEntity;
+import com.green.boardver3.user.model.UserInsDto;
 import com.green.boardver3.user.model.UserLoginDto;
 import com.green.boardver3.user.model.UserLoginVo;
 import com.green.boardver3.user.model.UserPatchPwDto;
@@ -10,40 +10,49 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
+
     private final UserMapper mapper;
     private final CommonUtils commonUtils;
+
     @Autowired
     public UserService(UserMapper mapper, CommonUtils commonUtils) {
         this.mapper = mapper;
         this.commonUtils = commonUtils;
     }
 
-    public int insUser(UserEntity entity) {
+    public int insUser(UserInsDto dto) {
+
         //성별 항상 대문자 변경
-        char gender = Character.toUpperCase(entity.getGender());
-        entity.setGender(gender);
+        char gender = Character.toUpperCase(dto.getGender());
+        if(!(gender == 'M' || gender == 'F')) {
+            return -1;
+        }
+        dto.setGender(gender);
+
         //비밀번호 암호화
-        String hashPw = commonUtils.encodeSha256(entity.getUpw());
-        entity.setUpw(hashPw);//entity
+        String hashedPw = commonUtils.encodeSha256(dto.getUpw());
+        dto.setUpw(hashedPw);
         try {
-            return mapper.insUser(entity);
+            return mapper.insUser(dto);
         } catch (Exception e) {
             e.printStackTrace();
             return 0;
         }
     }
-    public int login(UserLoginDto dto){
+
+    public int login(UserLoginDto dto) {
         UserLoginVo vo = mapper.selUserByUid(dto);
-        if (vo == null) { return 2; }
+        if(vo == null) { return 2; }
         String hashedPw = commonUtils.encodeSha256(dto.getUpw());
-        if (vo.getUpw().equals(hashedPw)) {
+        if(vo.getUpw().equals(hashedPw)) {
             return 1;
         }
         return 3;
     }
-    public int updUserByUpw(UserPatchPwDto dto) {
-        String hashPw = commonUtils.encodeSha256(dto.getUpw());
-        dto.setUpw(hashPw);
-        return mapper.updUserByUpw(dto);
+
+    public int updUserPw(UserPatchPwDto dto) {
+        String hashedPw = commonUtils.encodeSha256(dto.getUpw());
+        dto.setUpw(hashedPw);
+        return mapper.updUserPw(dto);
     }
 }

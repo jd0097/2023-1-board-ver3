@@ -3,7 +3,6 @@ package com.green.boardver3.board;
 import com.green.boardver3.board.model.*;
 import com.green.boardver3.cmt.CmtMapper;
 import com.green.boardver3.cmt.model.CmtDelDto;
-import com.green.boardver3.cmt.model.CmtEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,27 +40,28 @@ public class BoardService {
 
     public int selBoardMaxPage(int row) {
         int count = mapper.selBoardRowCount();
-        return (int) Math.ceil((double) count / row);
+        return (int)Math.ceil((double)count / row);
     }
-    public int updBoard(BoardUpdDto dto){
+
+    public BoardDetailVo selBoardDetail(BoardSelDto dto) {
+        return mapper.selBoardDetail(dto);
+    }
+
+    public int updBoard(BoardUpdDto dto) {
         return mapper.updBoard(dto);
     }
 
-    public BoardDetailDto selbyBoard(BoardDetailDto dto) {
-        return mapper.selbyBoard(dto);
-    }
     @Transactional(rollbackFor = Exception.class)
-    public int delBoard(BoardDelDto dto) throws Exception{
-        CmtDelDto cmtdeldto = new CmtDelDto();
-        cmtdeldto.setIboardCmt(dto.getIboard());
-        cmtMapper.delCmt(cmtdeldto);
+    public int delBoard(BoardDelDto dto) throws Exception {
 
-        int result = 0;
-        result = mapper.delBoard(dto);
-        if(result ==0){
+        CmtDelDto cmtDto = new CmtDelDto();
+        cmtDto.setIboard(dto.getIboard());
+        cmtMapper.delBoardCmt(cmtDto);
+        // 그 글에 달려있는 댓글을 전부 삭제해야 함.
+        int result = mapper.delBoard(dto);
+        if (result == 0) {
             throw new Exception("삭제 권한 없음");
         }
-        //그 글에 달려있는 댓글을 전부 삭제해야 함.
         return result;
     }
 }

@@ -5,48 +5,56 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
-@RequestMapping("/board/cmt")
+@RequestMapping("/board")
 public class CmtController {
+
     private final CmtService service;
-@Autowired
+
+    @Autowired
     public CmtController(CmtService service) {
         this.service = service;
     }
+
     @PostMapping("/{iboard}/cmt")
-    public int insCmt(@PathVariable int iboard
-                    , @RequestBody CmtInsDto dto){
-    CmtEntity entity = new CmtEntity();
-    entity.setIboard(iboard);
-    entity.setIuser(dto.getIuser());
-    entity.setCtnt(dto.getCtnt());
-        return service.insCmt(entity);
+    public int postBoardCmt(@PathVariable int iboard
+                          , @RequestBody CmtInsDto dto){
+        CmtEntity entity = new CmtEntity();
+        entity.setIboard(iboard);
+        entity.setIuser(dto.getIuser());
+        entity.setCtnt(dto.getCtnt());
+        return service.insBoardCmt(entity);
     }
+
     @GetMapping("/{iboard}/cmt")
-    public CmtRes getCmt(@PathVariable int iboard
-                              ,@RequestParam int page
-                             ,@RequestParam (defaultValue = "5") int row) {
+    public CmtRes getBoardCmt(@PathVariable int iboard
+                                 , @RequestParam int page
+                                 , @RequestParam(defaultValue = "5") int row) {
         CmtSelDto dto = new CmtSelDto();
+        dto.setIboard(iboard);
         dto.setPage(page);
         dto.setRow(row);
-        dto.setIboard(iboard);
-        return service.selCmt(dto);
+        return service.selBoardCmt(dto);
+    }
+
+    @PutMapping("/cmt/{iboardCmt}")
+    public int putBoardCmt(@PathVariable int iboardCmt
+                        , @RequestBody CmtUpdDto dto) {
+        CmtEntity entity = new CmtEntity();
+        entity.setIboardCmt(iboardCmt);
+        entity.setIuser(dto.getIuser());
+        entity.setCtnt(dto.getCtnt());
+        return service.updBoardCmt(entity);
     }
 
     @DeleteMapping("/cmt/{iboardCmt}")
-    public int delCmt(@PathVariable int iboardCmt, @RequestParam int iuser) {
+    public int delBoardCmt(@PathVariable int iboardCmt
+                         , @RequestParam int iuser) {
         CmtDelDto dto = new CmtDelDto();
         dto.setIboardCmt(iboardCmt);
         dto.setIuser(iuser);
-        return service.delCmt(dto);
-    }
-    @PutMapping("/{iboardCmt}")
-    public int upCmt(@PathVariable int iboardCmt, @RequestBody CmtUpDto dto){
-    CmtEntity entity = new CmtEntity();
-    entity.setIboardCmt(iboardCmt);
-    entity.setIuser(dto.getIuser());
-    entity.setCtnt(dto.getCtnt());
-    return service.upCmt(entity);
+        return service.delBoardCmt(dto);
     }
 }
