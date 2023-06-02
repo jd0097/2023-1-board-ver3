@@ -9,7 +9,7 @@ import java.util.List;
 public interface BoardMapper {
     int insBoard(BoardEntity dto);
     List<BoardVo> selBoard(BoardSelDto dto);
-    int selBoardRowCount(int row);
+    int selBoardRowCount();
     BoardDetailDto selbyBoard(BoardDetailDto dto);
     int delBoard(BoardDetailDto dto);
     int updBoard(BoardUpdDto dto);

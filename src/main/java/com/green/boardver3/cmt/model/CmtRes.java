@@ -10,5 +10,7 @@ import java.util.List;
 @Builder
 public class CmtRes {
     private int isMore; // 0 댓글 더 없음 ,1 댓글 더 있음
+    private int max;
+    private int row;
     private List<CmtVo> list;
 }

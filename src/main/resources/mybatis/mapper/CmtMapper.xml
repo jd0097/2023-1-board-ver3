@@ -21,6 +21,12 @@
         WHERE A.iboard=#{iboard}
         LIMIT #{startIdx},#{row}
     </select>
+    <select id="max" resultType="int">
+        Select count(iboardcmt)
+        from t_board_cmt
+        where iboardcmt = #{iboardcmt}
+
+    </select>
 
     <delete id="delCmt">
         DELETE from t_board_cmt
