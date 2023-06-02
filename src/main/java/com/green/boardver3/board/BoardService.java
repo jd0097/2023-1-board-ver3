@@ -46,8 +46,9 @@ public class BoardService {
         return mapper.selbyBoard(dto);
     }
     public int delBoard(BoardDetailDto dto){
-        CmtEntity entity = new CmtEntity();
-        int result = cmtMapper.delCmt(entity);
+          CmtEntity entity = new CmtEntity();
+          entity.setIboard(entity.getIboard());
+          cmtMapper.delCmt(entity);
         //그 글에 달려있는 댓글을 전부 삭제해야 함.
         return mapper.delBoard(dto);
     }

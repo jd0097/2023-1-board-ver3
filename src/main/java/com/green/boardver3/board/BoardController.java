@@ -57,4 +57,5 @@ public class BoardController {
     return service.updBoard(dto);
     }
 
+
 }

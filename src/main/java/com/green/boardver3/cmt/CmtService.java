@@ -38,9 +38,6 @@ public class CmtService {
         int maxPage = (int)Math.ceil((double)rowCnt / dto.getRow());
         int isMore = maxPage > dto.getPage() ? 1 : 0;
 
-
-
-
             return CmtRes.builder()
                     .list(list)
                     .isMore(isMore)
@@ -48,6 +45,7 @@ public class CmtService {
 
     }
     public int delCmt(CmtEntity entity) {
+
         return mapper.delCmt(entity);
     }
 
