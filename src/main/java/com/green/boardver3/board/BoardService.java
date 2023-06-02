@@ -2,6 +2,7 @@ package com.green.boardver3.board;
 
 import com.green.boardver3.board.model.*;
 import com.green.boardver3.cmt.CmtMapper;
+import com.green.boardver3.cmt.CmtService;
 import com.green.boardver3.cmt.model.CmtDelDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,13 +13,15 @@ import java.util.List;
 @Service
 public class BoardService {
     private final BoardMapper mapper;
-    private final CmtMapper cmtMapper;
+    private final CmtService cmtService;
 
     @Autowired
-    public BoardService(BoardMapper mapper, CmtMapper cmtMapper) {
+    public BoardService(BoardMapper mapper, CmtService cmtService) {
         this.mapper = mapper;
-        this.cmtMapper = cmtMapper;
+        this.cmtService = cmtService;
     }
+
+
 
     public int insBoard(BoardInsDto dto) {
         BoardEntity entity = new BoardEntity();
@@ -56,7 +59,7 @@ public class BoardService {
 
         CmtDelDto cmtDto = new CmtDelDto();
         cmtDto.setIboard(dto.getIboard());
-        cmtMapper.delBoardCmt(cmtDto);
+        cmtService.delBoardCmt(cmtDto);
         // 그 글에 달려있는 댓글을 전부 삭제해야 함.
         int result = mapper.delBoard(dto);
         if (result == 0) {
