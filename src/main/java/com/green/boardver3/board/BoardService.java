@@ -4,6 +4,8 @@ import com.green.boardver3.board.model.*;
 import com.green.boardver3.cmt.CmtMapper;
 import com.green.boardver3.cmt.CmtService;
 import com.green.boardver3.cmt.model.CmtDelDto;
+import com.green.boardver3.cmt.model.CmtSelDto;
+import com.green.boardver3.cmt.model.CmtVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,7 +49,9 @@ public class BoardService {
     }
 
     public BoardDetailVo selBoardDetail(BoardSelDto dto) {
+
         return mapper.selBoardDetail(dto);
+
     }
 
     public int updBoard(BoardUpdDto dto) {
