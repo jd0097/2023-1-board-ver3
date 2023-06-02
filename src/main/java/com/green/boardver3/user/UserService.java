@@ -1,10 +1,12 @@
 package com.green.boardver3.user;
 
-import com.green.boardver3.user.model.*;
+import com.green.boardver3.user.model.UserInsDto;
+import com.green.boardver3.user.model.UserLoginDto;
+import com.green.boardver3.user.model.UserLoginVo;
+import com.green.boardver3.user.model.UserPatchPwDto;
 import com.green.boardver3.utils.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class UserService {
@@ -53,7 +55,8 @@ public class UserService {
         dto.setUpw(hashedPw);
         return mapper.updUserPw(dto);
     }
-    public int updUserPic(MultipartFile pic, UserPatchPicDto dto){
+    public int updUserPic(){
+
         return 0;
     }
 }

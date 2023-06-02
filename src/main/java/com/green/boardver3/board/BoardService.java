@@ -48,8 +48,8 @@ public class BoardService {
         return (int)Math.ceil((double)count / row);
     }
 
-    public BoardDetailCmtvo selBoardDetail(BoardSelDto dto) {
-        BoardDetailVo vo = mapper.selBoardDetail(dto);
+    public BoardCmtDetailVo selBoardDetail(BoardSelDto dto) {
+        BoardCmtDetailVo vo = mapper.selBoardDetail(dto);
 
         CmtSelDto cmtDto = new CmtSelDto();
         cmtDto.setIboard(dto.getIboard());
@@ -57,7 +57,7 @@ public class BoardService {
         cmtDto.setRow(5);
         CmtRes cmt = cmtService.selBoardCmt(cmtDto);
 
-        return BoardDetailCmtvo.builder()
+        return BoardCmtDetailVo.builder()
                 .iboard(vo.getIboard())
                 .title(vo.getTitle())
                 .ctnt(vo.getCtnt())
