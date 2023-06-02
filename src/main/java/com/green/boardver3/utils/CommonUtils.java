@@ -1,11 +1,11 @@
 package com.green.boardver3.utils;
 
 import org.springframework.stereotype.Component;
-
 import java.security.MessageDigest;
 
 @Component
 public class CommonUtils {
+
     public String encodeSha256(String source) {
         String mSalt = "abcd123";
         String result = "";
