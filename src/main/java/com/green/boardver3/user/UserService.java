@@ -2,6 +2,7 @@ package com.green.boardver3.user;
 
 import com.green.boardver3.user.model.*;
 import com.green.boardver3.utils.CommonUtils;
+import com.green.boardver3.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ public class UserService {
 
     private final UserMapper mapper;
     private final CommonUtils commonUtils;
+
     @Value("${file.dir}")
     private  String fileDir;
 
@@ -21,6 +23,7 @@ public class UserService {
     public UserService(UserMapper mapper, CommonUtils commonUtils) {
         this.mapper = mapper;
         this.commonUtils = commonUtils;
+
     }
 
     public int insUser(UserInsDto dto) {
@@ -61,12 +64,33 @@ public class UserService {
     public int updUserPic(MultipartFile pic, UserPatchPicDto dto){
         //user/pk/uuid.jpg
         //user/1/abcd.jpg
+        String centerPath = String.format("user/%d", dto.getIuser());
         String dicPath = String.format("%s/user/%d", fileDir, dto.getIuser()); //D:/download/board3/user/1
         File dic = new File(dicPath);
         if (!dic.exists()){
             dic.mkdirs();
         }
-
-        return 0;
+        String originFileName = pic.getOriginalFilename();
+        String savedFileName = FileUtils.makeRandomFileNm(originFileName);
+        String savedFilePath = String.format("%s/%s", centerPath, savedFileName);
+        String targetPath = String.format("%s/%s", fileDir, savedFilePath);
+        File target = new File(targetPath);
+        try {
+            pic.transferTo(target);
+        }catch (Exception e) {
+            return 0;
+        }
+        dto.setMainPic(savedFilePath);
+        try {
+            int result = mapper.updUserPic(dto);
+            if(result == 0) {
+                throw new Exception("프로필 사진을 등록할 수 없습니다.");
+            }
+        } catch (Exception e) {
+            //파일 삭제
+            target.delete();
+            return 0;
+        }
+        return 1;
     }
 }
