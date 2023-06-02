@@ -48,8 +48,24 @@ public class BoardService {
         return (int)Math.ceil((double)count / row);
     }
 
-    public BoardDetailVo selBoardDetail(BoardSelDto dto) {
-        return mapper.selBoardDetail(dto);
+    public BoardDetailCmtvo selBoardDetail(BoardSelDto dto) {
+        BoardDetailVo vo = mapper.selBoardDetail(dto);
+
+        CmtSelDto cmtDto = new CmtSelDto();
+        cmtDto.setIboard(dto.getIboard());
+        cmtDto.setPage(1);
+        cmtDto.setRow(5);
+        CmtRes cmt = cmtService.selBoardCmt(cmtDto);
+
+        return BoardDetailCmtvo.builder()
+                .iboard(vo.getIboard())
+                .title(vo.getTitle())
+                .ctnt(vo.getCtnt())
+                .createdAt(vo.getCreatedAt())
+                .writer(vo.getWriter())
+                .writerMainPic(vo.getWriterMainPic())
+                .cmt(cmt)
+                .build();
     }
 
     public int updBoard(BoardUpdDto dto) {
@@ -69,19 +85,7 @@ public class BoardService {
         }
         return result;
     }
-    public BoardDetailCmtvo deBoard(BoardSelDto dto){
-        BoardDetailVo vo = mapper.deBoard(dto);
 
-        CmtSelDto cmtDto = new CmtSelDto();
-        cmtDto.setIboard(dto.getIboard());
-        cmtDto.setPage(1);
-        cmtDto.setRow(5);
-        CmtRes cmt = cmtService.selBoardCmt(cmtDto);
-
-
-
-
-    }
 
 
 }
