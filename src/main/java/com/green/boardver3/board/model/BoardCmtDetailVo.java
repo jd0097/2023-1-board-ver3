@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @Getter
 @Builder
-public class BoardDetailCmtvo {
+public class BoardCmtDetailVo {
     private int iboard;
     private String title;
     private String ctnt;
