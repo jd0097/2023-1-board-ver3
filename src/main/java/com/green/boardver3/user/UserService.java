@@ -62,18 +62,18 @@ public class UserService {
     }
     public int updUserPic(MultipartFile pic, UserPatchPicDto dto){
         String dicPath = String.format("%s/user/%d", fileDir, dto.getIuser()); //D:/download/board3/user/1
-        String savedFileName = pic.getOriginalFilename();
-        String savedFilePath = fileDir + savedFileName;
-        String abc = FileUtils.makeRandomFileNm(savedFilePath);
-        String dc = String.format("user"+"/",fileDir,dto.getIuser());
         File dic = new File(dicPath);
         if (!dic.exists()){
             dic.mkdirs();
         }
+        String savedFileName = pic.getOriginalFilename();
+        String savedFilePath = fileDir + savedFileName;
+        String abc = FileUtils.makeRandomFileNm(savedFilePath);
+        String dc = String.format("user"+"/",fileDir,dto.getIuser());
         try {
-            dto.setMainPic(dc+abc);
-            pic.transferTo(dic);
-          return  mapper.updUserPic(dto);
+            dto.setMainPic(dc+abc);// 실질적으로 DB에 저장하기위해
+            pic.transferTo(dic); // 파일 저장을 할 수 있도록 폴더를 만들어주는 역활
+          return  mapper.updUserPic(dto); // mapper안에서 쿼리문 실행후 DB저장
         }catch (Exception e){
             e.printStackTrace();
         }return 0;
