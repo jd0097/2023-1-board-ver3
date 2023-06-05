@@ -61,21 +61,58 @@ public class UserService {
         return mapper.updUserPw(dto);
     }
     public int updUserPic(MultipartFile pic, UserPatchPicDto dto){
-        String dicPath = String.format("%s/user/%d", fileDir, dto.getIuser()); //D:/download/board3/user/1
-        String savedFileName = pic.getOriginalFilename();
-        String savedFilePath = fileDir + savedFileName;
-        String abc = FileUtils.makeRandomFileNm(savedFilePath);
-        String dc = String.format("user"+"/",fileDir,dto.getIuser());
+
+//2.      String centerPath = String.format("user/%d",dto.getIuser());
+//        String savedFileName = pic.getOriginalFilename();
+//        String savedFilePath = fileDir + savedFileName;
+//        String abc = FileUtils.makeRandomFileNm(savedFilePath);
+//        String dicPath = String.format("%s/user/%d", fileDir, dto.getIuser()); //D:/download/board3/user/1
+//        //String dc = String.format("%s/user/%d"+"/",fileDir,dto.getIuser());
+//
+//        File dic = new File(dicPath);
+//        if (!dic.exists()){
+//            dic.mkdirs();
+//        }
+//        try {
+//            pic.transferTo(dic);
+//            dto.setMainPic(abc);
+//
+//          return  mapper.updUserPic(dto);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }return 0;
+//    }
+        // user/pk/uuid.jpg
+        // user/1/abcd.jpg
+        String centerPath = String.format("user/%d", dto.getIuser());
+        String dicPath = String.format("%s/%s", fileDir, centerPath);
+
         File dic = new File(dicPath);
-        if (!dic.exists()){
+        if(!dic.exists()) {
             dic.mkdirs();
         }
+
+        String originFileName = pic.getOriginalFilename();
+        String savedFileName = FileUtils.makeRandomFileNm(originFileName);
+        String savedFilePath = String.format("%s/%s", centerPath, savedFileName);
+        String targetPath = String.format("%s/%s", fileDir, savedFilePath);
+        File target = new File(targetPath);
         try {
-            dto.setMainPic(dc+abc);
-            pic.transferTo(dic);
-          return  mapper.updUserPic(dto);
-        }catch (Exception e){
-            e.printStackTrace();
-        }return 0;
+            pic.transferTo(target);
+        }catch (Exception e) {
+            return 0;
+        }
+        dto.setMainPic(savedFilePath);
+        try {
+            int result = mapper.updUserPic(dto);
+            if(result == 0) {
+                throw new Exception("프로필 사진을 등록할 수 없습니다.");
+            }
+        } catch (Exception e) {
+            //파일 삭제
+            target.delete();
+            return 0;
+        }
+        return 1;
     }
 }
