@@ -24,14 +24,13 @@ public class BoardService {
     }
 
 
-
     public int insBoard(BoardInsDto dto) {
         BoardEntity entity = new BoardEntity();
         entity.setTitle(dto.getTitle());
         entity.setCtnt(dto.getCtnt());
         entity.setIuser(dto.getIuser());
         int result = mapper.insBoard(entity);
-        if(result == 1) {
+        if (result == 1) {
             return entity.getIboard();
         }
         return result;
@@ -45,18 +44,25 @@ public class BoardService {
 
     public int selBoardMaxPage(int row) {
         int count = mapper.selBoardRowCount();
-        return (int)Math.ceil((double)count / row);
+        return (int) Math.ceil((double) count / row);
     }
 
-    public BoardCmtDetailVo selBoardDetail(BoardSelDto dto) {
-        BoardCmtDetailVo vo = mapper.selBoardDetail(dto);
+    public BoardCmtDetailVo2 selBoardDetail(BoardSelDto dto) {
+        BoardDetailVo vo = mapper.selBoardDetail(dto);
 
         CmtSelDto cmtDto = new CmtSelDto();
         cmtDto.setIboard(dto.getIboard());
         cmtDto.setPage(1);
         cmtDto.setRow(5);
         CmtRes cmt = cmtService.selBoardCmt(cmtDto);
+        return BoardCmtDetailVo2.builder()
+                .board(vo)
+                .cmt(cmt)
+                .build();
+    }
 
+
+/*
         return BoardCmtDetailVo.builder()
                 .iboard(vo.getIboard())
                 .title(vo.getTitle())
@@ -66,7 +72,9 @@ public class BoardService {
                 .writerMainPic(vo.getWriterMainPic())
                 .cmt(cmt)
                 .build();
-    }
+                */
+
+
 
     public int updBoard(BoardUpdDto dto) {
         return mapper.updBoard(dto);
