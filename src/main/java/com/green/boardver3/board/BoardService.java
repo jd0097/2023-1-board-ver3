@@ -56,7 +56,7 @@ public class BoardService {
         cmtDto.setRow(5);
         CmtRes cmt = cmtService.selBoardCmt(cmtDto);
         return BoardCmtDetailVo2.builder()
-                .board(vo)
+                .board(vo
                 .cmt(cmt)
                 .build();
     }
