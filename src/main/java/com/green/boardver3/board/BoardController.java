@@ -45,7 +45,6 @@ public class BoardController {
     public BoardCmtDetailVo2 getBoardDetail(@PathVariable int iboard) {
         BoardSelDto dto = new BoardSelDto();
         dto.setIboard(iboard);
-
         return service.selBoardDetail(dto);
     }
 
