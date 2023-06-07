@@ -7,6 +7,6 @@ import lombok.Getter;
 @Getter
 @Builder
 public class BoardCmtDetailVo2 {
-    private BoardCmtDetailVo board;
+    private BoardDetailVo board;
     private CmtRes cmt;
 }
