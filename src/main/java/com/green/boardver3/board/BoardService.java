@@ -48,7 +48,7 @@ public class BoardService {
         return (int)Math.ceil((double)count / row);
     }
 
-    public BoardCmtDetailVo selBoardDetail(BoardSelDto dto) {
+    public BoardCmtDetailVo2 selBoardDetail(BoardSelDto dto) {
         BoardCmtDetailVo vo = mapper.selBoardDetail(dto);
 
         CmtSelDto cmtDto = new CmtSelDto();
@@ -56,14 +56,8 @@ public class BoardService {
         cmtDto.setPage(1);
         cmtDto.setRow(5);
         CmtRes cmt = cmtService.selBoardCmt(cmtDto);
-
-        return BoardCmtDetailVo.builder()
-                .iboard(vo.getIboard())
-                .title(vo.getTitle())
-                .ctnt(vo.getCtnt())
-                .createdAt(vo.getCreatedAt())
-                .writer(vo.getWriter())
-                .writerMainPic(vo.getWriterMainPic())
+        return BoardCmtDetailVo2.builder()
+                .board(vo)
                 .cmt(cmt)
                 .build();
     }
