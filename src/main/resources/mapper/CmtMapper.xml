@@ -12,7 +12,8 @@
     </insert>
 
     <select id="selBoardCmt">
-        SELECT A.iboardcmt iboardcmt, A.iboard, A.iuser, A.ctnt, A.created_at createdAt
+        SELECT A.iboardc
+        mt iboardcmt, A.iboard, A.iuser, A.ctnt, A.created_at createdAt
              , B.nm writer, B.main_pic writerMainPic
         FROM t_board_cmt A
         INNER JOIN t_user B
