@@ -46,6 +46,20 @@ public class BoardService {
         int count = mapper.selBoardRowCount();
         return (int) Math.ceil((double) count / row);
     }
+    public BoardCmtDetailVo2 selBoardDetail(BoardSelDto dto){
+        BoardDetailVo vo = mapper.selBoardDetail(dto);
+
+        CmtSelDto cmtDto = new CmtSelDto();
+        cmtDto.setIboard(dto.getIboard());
+        cmtDto.setPage(1);
+        cmtDto.setRow(5);
+        CmtRes cmt = cmtService.selBoardCmt(cmtDto);
+
+        return BoardCmtDetailVo2.builder()
+                .board(vo)
+                .cmt(cmt)
+                .build();
+    }
 
 /*
         return BoardCmtDetailVo.builder()
