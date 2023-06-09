@@ -44,7 +44,7 @@
         <if test="iboard > 0">
             iboard = #{iboard}
         </if>
-
     </delete>
+    
 
 </mapper>

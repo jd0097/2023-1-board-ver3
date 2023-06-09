@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class CmtSelDto {
     private int iboard;
-    private int page;
-    private int row;
+    private int page; //1
+    private int row; //5
     private int startIdx;
 }
